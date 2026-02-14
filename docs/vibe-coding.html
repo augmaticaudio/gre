@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding - Augmatic GRE</title>
+    <meta name="description" content="Augmatic GRE is 100% vibe-coded. Learn what that means and how a JUCE audio plugin was built entirely through AI-assisted natural language prompts.">
+    <link rel="icon" type="image/png" href="img/app-icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .vibe-coding-content section {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="index.html">
+                <img src="img/app-icon.png" alt="Augmatic GRE" width="32" height="32" class="d-inline-block align-text-top me-2" style="border-radius: 6px;">
+                Augmatic GRE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Vibe Coding Content -->
+    <div class="manual-page">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="manual-header text-center">
+                <h1>Augmatic GRE is 100% vibe-coded</h1>
+            </div>
+
+            <div class="manual-content vibe-coding-content">
+
+                <section>
+                    <p>Vibe coding is an AI-assisted programming approach where you describe what you want in natural language, and the AI generates the code.</p>
+                    <p>I'm Artur Nowak, and I built Augmatic GRE this way. The whole plugin was created through my natural-language prompts, while the AI wrote the actual C++ and <a href="https://juce.com/" target="_blank" rel="noopener">JUCE</a> code.</p>
+                </section>
+
+                <section>
+                    <p>When I first heard about vibe coding, I was skeptical. After doing it, I'm even more skeptical. The spark came from watching my son Leon build a speedcubing timer app with AI. I thought, "Okay&hellip; maybe this isn't a fairy tale." Augmatic GRE is dedicated to him. I love you Leon!</p>
+                </section>
+
+                <section>
+                    <p>I've been using music software for a long time &mdash; over 20 years with <a href="https://www.native-instruments.com/en/products/komplete/synths/reaktor-6/" target="_blank" rel="noopener">Native Instruments Reaktor</a> (RIP?) and more recently <a href="https://cycling74.com/products/max" target="_blank" rel="noopener">Max</a> &mdash; so I wasn't starting from zero. I already knew what PPQ was, at least.</p>
+                    <p>I enjoy making music on the iPad, and I always had fun tweaking <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/grids/" target="_blank" rel="noopener">Mutable Instruments Grids</a> patterns in <a href="https://vcvrack.com/" target="_blank" rel="noopener">VCV Rack</a> inside <a href="https://www.ableton.com/en/live/" target="_blank" rel="noopener">Ableton Live</a>. But there was no Grids port for iPad. <a href="https://mirack.app/" target="_blank" rel="noopener">miRack</a> is an option, but my Grids patch eventually became too large to use on iPad Mini inside <a href="https://apps.apple.com/us/app/drambo/id1469365718" target="_blank" rel="noopener">Drambo</a>.</p>
+                </section>
+
+                <section>
+                    <p>So I thought: why not make my own Grids port for the iPad? Despite my experience, I was naive enough to tell the AI, "Let's build Grids." It was supposed to be simple&hellip; and then I kept adding more ideas to make the rhythms more exciting.</p>
+                </section>
+
+                <section>
+                    <p>Vibe coding sounds easy: tell the AI what you want, and it builds it. Apps on demand, right? Yeah, but not really. This project took many evenings and weekends over six months. I lost count of how many times the AI got stuck, confidently declared "this will work," and then absolutely did not work. That's where my Reaktor/Max background saved me: I had to design proper solutions myself, then instruct the AI to implement them. At one point I nearly asked it to build ~phasor from scratch. I know, I could use <a href="https://cycling74.com/products/rnbo" target="_blank" rel="noopener">RNBO</a>&hellip; maybe I will use it for the next project. I have many ideas and instruments in Reaktor which I would love to turn into self-contained plugins!</p>
+                </section>
+
+                <section>
+                    <p>Augmatic GRE turned out well enough that I decided to release it. The code is open, so <a href="https://juce.com/" target="_blank" rel="noopener">JUCE</a> developers can have a good laugh and explain why AI won't replace them anytime soon. They'll be right.</p>
+                    <p>I hope Augmatic GRE inspires you to create exciting rhythms and tracks. That's all I wanted for myself. <code>#makeyourownplugins</code></p>
+                </section>
+
+            </div><!-- .manual-content -->
+
+        </div><!-- .container -->
+    </div><!-- .manual-page -->
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container text-center">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle mb-0">Questions, feedback, or feature requests? <a id="contact-email" href="#" class="contact-link"></a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 - Designed and <a href="vibe-coding.html" class="text-inherit">Vibe-coded</a> by Artur Nowak</p>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Obfuscated email assembly (bot protection)
+        var ce = document.getElementById('contact-email');
+        if (ce) {
+            var u = 'augmatic' + '.' + 'gre';
+            var d = 'gmail' + '.' + 'com';
+            var addr = u + '\u0040' + d;
+            ce.href = 'mai' + 'lto:' + addr;
+            ce.textContent = addr;
+        }
+    </script>
+</body>
+</html>

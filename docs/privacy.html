@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Augmatic GRE</title>
+    <meta name="description" content="Privacy Policy for Augmatic GRE, an AUv3 MIDI drum pattern generator for macOS and iPad.">
+    <link rel="icon" type="image/png" href="img/app-icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="index.html">
+                <img src="img/app-icon.png" alt="Augmatic GRE" width="32" height="32" class="d-inline-block align-text-top me-2" style="border-radius: 6px;">
+                Augmatic GRE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Privacy Content -->
+    <div class="manual-page">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="manual-header text-center">
+                <h1>Privacy Policy</h1>
+                <p class="lead text-muted">Effective Date: February 8, 2026 &mdash; Last Updated: February 8, 2026</p>
+            </div>
+
+            <div class="manual-content">
+
+                <section>
+                    <h2>Overview</h2>
+                    <p>Augmatic GRE is an AUv3 MIDI drum pattern generator. It runs entirely on your device. It does not collect, transmit, or share any personal data.</p>
+                </section>
+
+                <section>
+                    <h2>Data Collection</h2>
+                    <p><strong>Augmatic GRE does not collect or transmit any data directly.</strong></p>
+                    <ul>
+                        <li>No personal information is collected</li>
+                        <li>No usage analytics or telemetry are gathered</li>
+                        <li>No advertising identifiers are used</li>
+                        <li>No user tracking of any kind occurs</li>
+                        <li>No third-party analytics or crash reporting SDKs are included</li>
+                    </ul>
+                    <p><strong>Apple Crash Diagnostics:</strong> If you have opted in to share diagnostics with Apple (Settings &gt; Privacy &amp; Security &gt; Analytics &amp; Improvements), Apple may collect anonymized crash reports and performance data when the app crashes. This data is provided to the developer through Apple's standard reporting tools to help identify and fix issues. This is an Apple platform feature, not something Augmatic GRE implements independently. You can opt out at any time in your device settings.</p>
+                </section>
+
+                <section>
+                    <h2>Data Storage</h2>
+                    <p>All data created by Augmatic GRE is stored locally on your device:</p>
+                    <ul>
+                        <li><strong>Presets</strong> &mdash; Pattern settings saved as XML files in the app's local storage</li>
+                        <li><strong>MIDI Mappings</strong> &mdash; Note assignment configurations saved as XML files in the app's local storage</li>
+                        <li><strong>User Preferences</strong> &mdash; App settings stored via the operating system's standard preferences (UserDefaults)</li>
+                    </ul>
+                    <p>On iOS and iPadOS, presets and MIDI mappings are shared between the standalone app and the AUv3 plugin extension using Apple's App Groups feature. This data never leaves your device.</p>
+                    <p>If you enable Files app access in iOS, your presets and MIDI mappings become visible in the Files app for manual backup or transfer. This is entirely under your control.</p>
+                </section>
+
+                <section>
+                    <h2>Network Access</h2>
+                    <p>Augmatic GRE does not connect to the internet. It makes no network requests of any kind. There are no servers, no cloud storage, and no remote APIs.</p>
+                </section>
+
+                <section>
+                    <h2>Bluetooth</h2>
+                    <p>Augmatic GRE requests Bluetooth access solely to connect to wireless MIDI controllers and instruments. Bluetooth is used exclusively for MIDI communication. No data is collected or transmitted via Bluetooth beyond standard MIDI messages.</p>
+                </section>
+
+                <section>
+                    <h2>Third-Party Services</h2>
+                    <p>Augmatic GRE does not integrate with any third-party analytics, advertising, or data collection services.</p>
+                </section>
+
+                <section>
+                    <h2>Children's Privacy</h2>
+                    <p>Augmatic GRE does not collect any data from any user, including children. The app is rated 4+ and is suitable for all ages.</p>
+                </section>
+
+                <section>
+                    <h2>Changes to This Policy</h2>
+                    <p>If this privacy policy is updated, the revised version will be posted here with a new "Last Updated" date. Since Augmatic GRE collects no data, material changes are unlikely.</p>
+                </section>
+
+                <section>
+                    <h2>Contact</h2>
+                    <p>If you have questions about this privacy policy, contact:</p>
+                    <p><strong>Artur Nowak</strong><br>Email: <a id="contact-email" href="#" class="contact-link"></a></p>
+                </section>
+
+            </div><!-- .manual-content -->
+
+        </div><!-- .container -->
+    </div><!-- .manual-page -->
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 - Designed and <a href="vibe-coding.html" class="text-inherit">Vibe-coded</a> by Artur Nowak</p>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var ce = document.getElementById('contact-email');
+        if (ce) {
+            var u = 'augmatic' + '.' + 'gre';
+            var d = 'gmail' + '.' + 'com';
+            var addr = u + '\u0040' + d;
+            ce.href = 'mai' + 'lto:' + addr;
+            ce.textContent = addr;
+        }
+    });
+    </script>
+</body>
+</html>
