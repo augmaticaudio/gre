@@ -36,7 +36,7 @@
             <div class="manual-header text-center">
                 <h1>Augmatic GRE</h1>
                 <h1>User Manual</h1>
-                <p class="lead text-muted">Version 1.0 - 2026-02-10.</p>
+                <p class="lead text-muted">Version 1.0 - 2026-02-15.</p>
                 <p class="lead text-muted">AUv3 MIDI Drum Pattern Generator for iPad, iPhone and macOS.</p>
             </div>
 
@@ -118,7 +118,7 @@
                 <section id="getting-started">
                     <h2>Getting Started</h2>
                     <ol>
-                        <li><strong>Install</strong> &mdash; Download Augmatic GRE from the App Store</li>
+                        <li><strong>Install</strong> &mdash; Download <a href="https://apps.apple.com/app/id6759214507" target="_blank" rel="noopener">Augmatic GRE from the App Store</a></li>
                         <li><strong>Launch the standalone app</strong> once &mdash; this registers the AUv3 extension with the system</li>
                         <li><strong>Open your host</strong> (Logic Pro, AUM, Cubasis, etc.)</li>
                         <li><strong>Add Augmatic GRE</strong> in a MIDI effect or MIDI source slot</li>
@@ -653,19 +653,34 @@ MIDI Output (Note On/Off on Channel 10)</code></pre>
                 <!-- File Storage -->
                 <section id="file-storage">
                     <h2>File Storage</h2>
+                    <p>Presets and MIDI mappings are stored as XML files in platform-specific directories. Factory content (shipped with the app) and user-created content are kept in separate subdirectories so that app updates never overwrite or delete your custom presets.</p>
 
                     <h3>iOS / iPadOS</h3>
+                    <p>On iOS, presets and MIDI mappings are stored in the app's Documents directory, visible in the Files app under <strong>On My iPad &gt; Augmatic GRE</strong>.</p>
                     <ul>
-                        <li><strong>Presets:</strong> App Group shared container <code>/AugmaticGRE/Presets/User/</code></li>
-                        <li><strong>MIDI Mappings:</strong> App Group shared container <code>/AugmaticGRE/MidiMappings/User/</code></li>
-                        <li>Both directories are accessible via the iOS Files app (File Sharing is enabled)</li>
-                        <li>Data is shared between the standalone app and AUv3 extension</li>
+                        <li><strong>Factory Presets:</strong> <code>Documents/Presets/Factory/</code></li>
+                        <li><strong>User Presets:</strong> <code>Documents/Presets/User/</code></li>
+                        <li><strong>Factory MIDI Mappings:</strong> <code>Documents/MIDI Mappings/Factory/</code></li>
+                        <li><strong>User MIDI Mappings:</strong> <code>Documents/MIDI Mappings/User/</code></li>
                     </ul>
+                    <p>You can browse, copy, and share these files directly from the iOS Files app. To import a preset someone shared with you, simply drop the XML file into the appropriate <code>User/</code> folder.</p>
+
+                    <h4>AUv3 &mdash; Files App Access</h4>
+                    <p>When running as an AUv3 plugin inside a host (AUM, Cubasis, Drambo, etc.), the plugin needs permission to access the standalone app's Documents folder. On first use, a blue <strong>&ldquo;Enable Files App Access&rdquo;</strong> button appears at the top of the plugin interface.</p>
+                    <ol>
+                        <li>Tap the button</li>
+                        <li>A folder picker opens, pre-navigated to the Augmatic GRE Documents folder</li>
+                        <li>Tap <strong>Open</strong> to grant access</li>
+                    </ol>
+                    <p>After this one-time setup, presets you save in the AUv3 are immediately visible in the Files app &mdash; no need to launch the standalone app. The permission persists across app restarts and device reboots.</p>
+                    <p>If you skip this step, the AUv3 still works normally but uses an internal storage area not visible in the Files app.</p>
 
                     <h3>macOS</h3>
                     <ul>
-                        <li><strong>Presets:</strong> <code>~/Library/Application Support/Audio/Presets/Artur Nowak/AugmaticGRE/</code></li>
-                        <li><strong>MIDI Mappings:</strong> <code>~/Library/Application Support/Audio/Presets/Artur Nowak/AugmaticGRE/MidiMappings/User/</code></li>
+                        <li><strong>Factory Presets:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/Presets/Factory/</code></li>
+                        <li><strong>User Presets:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/Presets/User/</code></li>
+                        <li><strong>Factory MIDI Mappings:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/MIDI&nbsp;Mappings/Factory/</code></li>
+                        <li><strong>User MIDI Mappings:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/MIDI&nbsp;Mappings/User/</code></li>
                     </ul>
                 </section>
 
@@ -677,7 +692,7 @@ MIDI Output (Note On/Off on Channel 10)</code></pre>
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container text-center">
-            <p class="mb-1">&copy; 2026 - Designed and <a href="../vibe-coding.html" class="text-inherit">Vibe-coded</a> by Artur Nowak</p>
+            <p class="mb-1">&copy; 2026 - Designed and <a href="../vibe-coding.html" class="text-inherit">Vibe-coded</a> by Artur Nowak. <a href="../../src/" class="text-inherit">Open Source</a></p>
         </div>
     </footer>
 
