@@ -32,6 +32,11 @@
     <div class="manual-page">
         <div class="container">
 
+            <!-- Language Selector -->
+            <div class="text-center pt-3 pb-1">
+                <strong>English</strong> &#183; <a href="de.html">Deutsch</a> &#183; <a href="sp.html">Espa&ntilde;ol</a> &#183; <a href="fr.html">Fran&ccedil;ais</a> &#183; <a href="pl.html">Polski</a> &#183; <a href="pt.html">Portugu&ecirc;s</a> &#183; <a href="cn.html">&#20013;&#25991;</a>
+            </div>
+
             <!-- Manual Header -->
             <div class="manual-header text-center">
                 <h1>Augmatic GRE</h1>
@@ -155,14 +160,14 @@
                     <h2 id="grids-engine">Grids Engine</h2>
                     <p>The Grids engine is a faithful port of the <a href="https://mutable-instruments.net/" target="_blank" rel="noopener">Mutable Instruments</a> Grids Eurorack module. It contains 25 pre-programmed pattern nodes arranged in a 5&times;5 grid. Each node stores three distinct rhythmic layers &mdash; bass drum, snare, and hi-hat &mdash; designed to work together musically.</p>
                     <p>When you move the X/Y coordinates, the engine smoothly blends between the four surrounding nodes using bilinear interpolation, creating an infinite continuum of rhythmic variations. The nodes are arranged in a curated musical topology, so adjacent positions morph between complementary drum styles rather than jumping abruptly.</p>
-                    <p>Each step in a pattern has a <strong>level</strong> value (0&ndash;255) that represents how strongly that drum hit &ldquo;wants&rdquo; to play. The <strong>Density</strong> control acts as a threshold: only steps whose level exceeds the threshold will trigger. This is why increasing Density gradually adds hits in a musically meaningful order &mdash; the strongest beats appear first, then fills and ghost notes emerge as you push higher.</p>
+                    <p>Each step in a pattern has a <strong>level</strong> value (0&ndash;127) that represents how strongly that drum hit &ldquo;wants&rdquo; to play. The <strong>Density</strong> control acts as a threshold: only steps whose level exceeds the threshold will trigger. This is why increasing Density gradually adds hits in a musically meaningful order &mdash; the strongest beats appear first, then fills and ghost notes emerge as you push higher.</p>
 
                     <h4>Main and Accent Channels</h4>
                     <p>Augmatic GRE runs <strong>six independent Grids instances</strong> &mdash; one per channel. All six share the same X/Y position and draw from the same pattern data, but each has its own Density and Chaos controls.</p>
-                    <p>This means accent channels produce <strong>complementary rhythms</strong>, not duplicates. At the same X/Y position, a BD' accent with Density 40 triggers different steps than the main BD with Density 128, because the density threshold filters different hits from the same underlying pattern. The strongest beats play on the main channel; the weaker, in-between hits emerge on the accent channel.</p>
+                    <p>This means accent channels produce <strong>complementary rhythms</strong>, not duplicates. At the same X/Y position, a BD' accent with Density 20 triggers different steps than the main BD with Density 64, because the density threshold filters different hits from the same underlying pattern. The strongest beats play on the main channel; the weaker, in-between hits emerge on the accent channel.</p>
                     <ul>
-                        <li><strong>Main channels</strong> (BD, SN, HH) &mdash; carry the primary beat. Set Density to taste (typically 80&ndash;180).</li>
-                        <li><strong>Accent channels</strong> (BD', SN', HH') &mdash; add ghost notes, rimshots, or alternative articulations. Default Density is 0 (silent). Increase to 20&ndash;50 to start hearing accents.</li>
+                        <li><strong>Main channels</strong> (BD, SN, HH) &mdash; carry the primary beat. Set Density to taste (typically 40&ndash;90).</li>
+                        <li><strong>Accent channels</strong> (BD', SN', HH') &mdash; add ghost notes, rimshots, or alternative articulations. Default Density is 0 (silent). Increase to 10&ndash;25 to start hearing accents.</li>
                     </ul>
                     <p>Assign accent channels to different MIDI notes than their parent (e.g., BD=bass drum, BD'=rimshot) to trigger alternative drum sounds on the accent hits.</p>
 
@@ -170,10 +175,10 @@
                     <p>Controls how many notes each instrument generates. Higher density = more notes.</p>
                     <ul>
                         <li><strong>0</strong>: No notes</li>
-                        <li><strong>128</strong>: Medium density (roughly half the available pattern steps trigger)</li>
-                        <li><strong>255</strong>: Maximum density (all available steps trigger)</li>
+                        <li><strong>64</strong>: Medium density (roughly half the available pattern steps trigger)</li>
+                        <li><strong>127</strong>: Maximum density (all available steps trigger)</li>
                     </ul>
-                    <p>Accent channels default to 0. Increase them to 20&ndash;50 to start hearing accent notes.</p>
+                    <p>Accent channels default to 0. Increase them to 10&ndash;25 to start hearing accent notes.</p>
 
                     <h3>Chaos</h3>
                     <p>Adds controlled randomness to patterns, creating variations in timing and velocity.</p>
@@ -288,7 +293,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p>A per-channel velocity value that <strong>replaces</strong> the engine's velocity entirely. Whatever velocity the Grids or Euclidean engine produces is discarded; the LEVEL value is used instead.</p>
                     <ul>
                         <li><strong>Range:</strong> 1&ndash;127</li>
-                        <li><strong>Default:</strong> 100 for all channels</li>
+                        <li><strong>Default:</strong> 120 for all channels</li>
                     </ul>
 
                     <h3>Velocity Randomization</h3>
@@ -336,7 +341,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p>The LINEAR tab controls the MIDI signal flow through a 12-column matrix. It provides probability filtering, mute/solo controls, and a 6-level priority system for resolving simultaneous notes.</p>
 
                     <h3>Signal Chain</h3>
-                    <pre><code>Engine Output -> Probability Pre -> Mute Pre -> Solo Pre -> Linear Drumming Matrix-> Probability Post -> Solo Post -> Mute Post -> MIDI Output</code></pre>
+                    <pre><code>Engine Output -> Probability Pre -> Mute Pre -> Solo Pre -> Linear Drumming Matrix -> Mute Post -> Probability Post -> Solo Post -> MIDI Output</code></pre>
                     <p>Controls on the left (Probability Pre, Mute Pre, Solo Pre) affect notes <strong>before</strong> priority processing. Controls on the right (Probability Post, Solo Post, Mute Post) affect notes <strong>after</strong> priority processing.</p>
 
                     <h3>Probability Pre / Probability Post</h3>
@@ -411,7 +416,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p>You can rename the display labels for any instrument to give you a better clue what instrument is actually playing:</p>
                     <ol>
                         <li><strong>Double-click</strong> (or double-tap on iPad) on any instrument label in the Settings tab</li>
-                        <li>A rename dialog appears with a text field (2 character max)</li>
+                        <li>A rename dialog appears with a text field (3 character max)</li>
                         <li>Enter the new name and tap <strong>Save</strong></li>
                     </ol>
                     <p><strong>Restore:</strong> Resets the channel to its factory default name (BD, SN, HH, BD', SN', HH').</p>
@@ -491,19 +496,19 @@ Solo Pre (pre-priority, full pattern)
 Linear Drumming Matrix (resolves simultaneous notes)
     |
     v
+Mute Post (post-priority, leaves holes)
+    |
+    v
 Probability Post (random filtering, post-priority)
     |
     v
 Solo Post (post-priority, with priority gaps)
     |
     v
-Mute Post (post-priority, leaves holes)
+Velocity Bender (LFO velocity modulation)
     |
     v
 Shift / Humanize (time delay)
-    |
-    v
-Velocity Bender (LFO velocity modulation, final stage)
     |
     v
 MIDI Output (Note On/Off on Channel 10)</code></pre>
@@ -575,7 +580,7 @@ MIDI Output (Note On/Off on Channel 10)</code></pre>
 
                     <h3>Setting Up Accent Layers</h3>
                     <ol>
-                        <li>Keep accent channel densities (BD', SN', HH') low (20&ndash;50)</li>
+                        <li>Keep accent channel densities (BD', SN', HH') low (10&ndash;25)</li>
                         <li>Assign different MIDI notes to accents (e.g., BD=C0, BD'=D0 for rimshot)</li>
                         <li>Give accents lower priority (4&ndash;6) so they yield to main hits</li>
                         <li>Use the Velocity Bender to modulate accent velocity over time</li>
@@ -604,7 +609,7 @@ MIDI Output (Note On/Off on Channel 10)</code></pre>
                 <section id="standalone-mode">
                     <h2>Standalone Mode</h2>
                     <img src="../img/screenshots/tab-4-settings-standalone.png" class="img-fluid rounded mb-4" alt="Augmatic GRE — Settings Tab (Standalone Mode)">
-                    <p>Augmatic GRE can run as a standalone app on both macOS and iPad, independent of any DAW. In standalone mode, the app provides its own internal clock and MIDI output routing. The standalone mode is sufficient to control one drum sampler or synthesizer, but for setups which include several time-synchronized instruments, we recommed using a host app wich will manage clock synchonization, MIDI CC mapping etc. </p>
+                    <p>Augmatic GRE can run as a standalone app on both macOS and iPad, independent of any DAW. In standalone mode, the app provides its own internal clock and MIDI output routing. The standalone mode is sufficient to control one drum sampler or synthesizer, but for setups which include several time-synchronized instruments, we recommend using a host app which will manage clock synchronization, MIDI CC mapping etc.</p>
 
                     <h3>AUv3 vs Standalone</h3>
                     <div class="table-responsive">

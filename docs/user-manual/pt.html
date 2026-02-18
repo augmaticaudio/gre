@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual - Augmatic GRE</title>
+    <meta name="description" content="Manual do utilizador do Augmatic GRE, um gerador de padrões rítmicos MIDI AUv3 para macOS e iPad.">
+    <link rel="icon" type="image/png" href="../img/app-icon.png">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="../index.html">
+                <img src="../img/app-icon.png" alt="Augmatic GRE" width="32" height="32" class="d-inline-block align-text-top me-2" style="border-radius: 6px;">
+                Augmatic GRE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Manual Content -->
+    <div class="manual-page">
+        <div class="container">
+
+            <!-- Language Selector -->
+            <div class="text-center pt-3 pb-1">
+                <a href="index.html">English</a> &#183; <a href="de.html">Deutsch</a> &#183; <a href="sp.html">Espa&ntilde;ol</a> &#183; <a href="fr.html">Fran&ccedil;ais</a> &#183; <a href="pl.html">Polski</a> &#183; <strong>Portugu&ecirc;s</strong> &#183; <a href="cn.html">&#20013;&#25991;</a>
+            </div>
+
+            <!-- Manual Header -->
+            <div class="manual-header text-center">
+                <h1>Augmatic GRE</h1>
+                <h1>Manual do Utilizador</h1>
+                <p class="lead text-muted">Versão 1.0 - 2026-02-15.</p>
+                <p class="lead text-muted">Gerador de Padrões Rítmicos MIDI AUv3 para iPad, iPhone e macOS.</p>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="manual-toc">
+                <h5>Índice</h5>
+                <ul>
+                    <li><a href="#introduction">Introdução</a></li>
+                    <li><a href="#compatible-hosts">Hosts Compatíveis</a></li>
+                    <li><a href="#getting-started">Primeiros Passos</a></li>
+                    <li><a href="#interface-overview">Visão Geral da Interface</a></li>
+                    <li><a href="#xy-pad">X/Y Pad</a></li>
+                    <li><a href="#pattern-tab">Separador Pattern</a></li>
+                    <li><a href="#grids-engine">Motor Grids</a></li>
+                    <li><a href="#euclidean-engine">Motor Euclidiano</a></li>
+                    <li><a href="#groove-tools">Ferramentas de Groove</a></li>
+                    <li><a href="#velocity-tab">Separador Velocity</a></li>
+                    <li><a href="#linear-tab">Separador Linear</a></li>
+                    <li><a href="#settings-tab">Separador Settings</a></li>
+                    <li><a href="#preset-system">Sistema de Presets</a></li>
+                    <li><a href="#signal-flow">Fluxo de Sinal MIDI</a></li>
+                    <li><a href="#daw-automation">Automação DAW</a></li>
+                    <li><a href="#tips">Dicas e Fluxos de Trabalho</a></li>
+                    <li><a href="#standalone-mode">Modo Standalone</a></li>
+                    <li><a href="#file-storage">Armazenamento de Ficheiros</a></li>
+                </ul>
+            </div>
+
+            <div class="manual-content">
+
+                <!-- Introduction -->
+                <section id="introduction">
+                    <h2>Introdução</h2>
+                    <p>O Augmatic GRE gera padrões rítmicos em evolução utilizando algoritmos musicais comprovados. Faça morphing através de variações rítmicas infinitas que equilibram naturalmente simplicidade e complexidade &mdash; sem programação manual entediante.</p>
+                    <p>O Augmatic GRE é um plugin AUv3 e uma aplicação standalone que gera notas MIDI para qualquer sampler de bateria ou sintetizador, tanto em software como em hardware, que aceite entrada MIDI. Não produz áudio.</p>
+
+                    <h4>Características Principais</h4>
+                    <ul>
+                        <li>6 canais algorítmicos &mdash; bombo, tarola, hi&#8209;hat, mais variações de acentuação e ghost</li>
+                        <li>Motor Grids &mdash; para ritmos morfáveis e em evolução &mdash; baseado no módulo Mutable Instruments</li>
+                        <li>Motor Euclidiano &mdash; para padrões de ritmos mundiais uniformemente distribuídos</li>
+                        <li>Controlo Blend &mdash; para misturar estilos Grids e Euclidiano</li>
+                        <li>Linear Drumming &mdash; nunca dois instrumentos tocam ao mesmo tempo</li>
+                        <li>Velocity Bender &mdash; para uma dinâmica mais expressiva e pulsante</li>
+                        <li>Ferramentas de Groove &mdash; swing, humanização, divisão de relógio e desfasamento temporal</li>
+                    </ul>
+
+                    <h4>Canais de Instrumentos</h4>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-bordered">
+                            <thead><tr><th>Canal</th><th>Etiqueta</th><th>Nome Predefinido</th><th>Função</th></tr></thead>
+                            <tbody>
+                                <tr><td>1</td><td>BD</td><td>Bass Drum</td><td>Bombo principal &mdash; conduz o ritmo base</td></tr>
+                                <tr><td>2</td><td>SN</td><td>Snare</td><td>Tarola principal &mdash; conduz o contratempo</td></tr>
+                                <tr><td>3</td><td>HH</td><td>Hi-Hat</td><td>Hi-hat principal &mdash; conduz a pulsação</td></tr>
+                                <tr><td>4</td><td>BD'</td><td>BD Accent</td><td>Acentuação independente do bombo &mdash; ghost notes, rimshots (density/chaos próprios)</td></tr>
+                                <tr><td>5</td><td>SN'</td><td>SN Accent</td><td>Acentuação independente da tarola &mdash; ghost hits, cross-sticks (density/chaos próprios)</td></tr>
+                                <tr><td>6</td><td>HH'</td><td>HH Accent</td><td>Acentuação independente do hi-hat &mdash; open hats, bells (density/chaos próprios)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>Cada canal pode utilizar um dos dois motores de padrões:</p>
+                    <ul>
+                        <li><strong>Motor Grids</strong> &mdash; Baseado no módulo Eurorack Mutable Instruments Grids. Faz morphing entre 25 padrões rítmicos pré-programados usando coordenadas X/Y.</li>
+                        <li><strong>Sequenciador Euclidiano</strong> &mdash; Distribui pulsos uniformemente ao longo dos passos usando o <a href="https://en.wikipedia.org/wiki/Euclidean_rhythm" target="_blank" rel="noopener">algoritmo de Bjorklund</a>. Produz ritmos encontrados na música tradicional de todo o mundo.</li>
+                    </ul>
+                    <p>Ambos os motores funcionam em paralelo. Um controlo <strong>Blend</strong> por canal mistura entre eles, e pode atribuir motores diferentes a canais diferentes.</p>
+                </section>
+
+                <!-- Compatible Hosts -->
+                <section id="compatible-hosts">
+                    <h2>Hosts Compatíveis</h2>
+                    <p>O Augmatic GRE é um Processador MIDI AUv3 (tipo <code>aumi</code>) que gera padrões rítmicos MIDI. Funciona com qualquer host AUv3 compatível, incluindo <a href="https://apps.apple.com/us/app/aum-audio-mixer/id1055636344" target="_blank" rel="noopener">AUM</a>, <a href="https://apps.apple.com/us/app/cubasis-3-music-studio/id1207839273" target="_blank" rel="noopener">Cubasis 3</a>, <a href="https://apps.apple.com/us/app/drambo/id1469365718" target="_blank" rel="noopener">Drambo</a> e <a href="https://apps.apple.com/us/app/loopy-pro-looper-daw-sampler/id1492670451" target="_blank" rel="noopener">Loopy Pro</a>.</p>
+                    <p>Carregue-o como Instrumento e depois encaminhe a saída MIDI para um sampler de bateria ou sintetizador noutra faixa.</p>
+                </section>
+
+                <!-- Getting Started -->
+                <section id="getting-started">
+                    <h2>Primeiros Passos</h2>
+                    <ol>
+                        <li><strong>Instale</strong> &mdash; Descarregue o <a href="https://apps.apple.com/app/id6759214507" target="_blank" rel="noopener">Augmatic GRE na App Store</a></li>
+                        <li><strong>Abra a aplicação standalone</strong> uma vez &mdash; isto regista a extensão AUv3 no sistema</li>
+                        <li><strong>Abra o seu host</strong> (Logic Pro, AUM, Cubasis, etc.)</li>
+                        <li><strong>Adicione o Augmatic GRE</strong> num slot de efeito MIDI ou fonte MIDI</li>
+                        <li><strong>Encaminhe a saída MIDI</strong> para um instrumento de bateria (sampler, drum machine, etc.)</li>
+                        <li><strong>Prima Play</strong> no seu host &mdash; os padrões são gerados e as notas MIDI fluem para o seu instrumento</li>
+                    </ol>
+                    <p>O plugin sincroniza com o transporte do host: BPM, play/stop e posição na timeline. Todos os parâmetros podem ser automatizados a partir da sua DAW.</p>
+                </section>
+
+                <!-- Interface Overview -->
+                <section id="interface-overview">
+                    <h2>Visão Geral da Interface</h2>
+                    <p>A interface do plugin tem quatro separadores: <strong>Pattern</strong>, <strong>Linear</strong>, <strong>Velocity</strong> e <strong>Settings</strong>.</p>
+                    <p>O lado esquerdo da interface contém:</p>
+                    <ul>
+                        <li><strong>Painel de Presets</strong> (topo) &mdash; carregar, guardar e navegar presets</li>
+                        <li><strong>X/Y Pad</strong> (centro) &mdash; toque e arraste para controlar Grids Map X / Map Y em duas dimensões</li>
+                    </ul>
+                    <p>O lado direito mostra os controlos do separador ativo, organizados numa grelha com uma linha por canal de instrumento (BD, SN, HH, BD', SN', HH').</p>
+                </section>
+
+                <section id="xy-pad">
+                    <h2>X/Y Pad</h2>
+                    <p>X/Y são controlos globais que afetam todos os canais de bateria simultaneamente. Selecionam uma posição dentro do mapa de padrões Grids &mdash; uma grelha 5&times;5 de 25 nós de padrão. Alterar X/Y muda o carácter rítmico subjacente de cada canal (BD, SD, HH, BD', SD', HH') de uma só vez. Valores entre pontos da grelha misturam padrões adjacentes suavemente.</p>
+                    <p>Todos os outros controlos no separador Pattern &mdash; Density, Chaos, Blend, parâmetros Euclidianos, Swing, Shift, Humanize e Clock Divider &mdash; são <strong>individuais por canal</strong>, permitindo moldar cada voz de bateria independentemente.</p>
+                </section>
+
+                <!-- Pattern Tab -->
+                <section id="pattern-tab">
+                    <h2>Separador Pattern</h2>
+                    <img src="../img/screenshots/tab-1-pattern.png" class="img-fluid rounded mb-4" alt="Augmatic GRE — Separador Pattern">
+                    <p>O separador PATTERN controla como os padrões rítmicos são gerados. Cada canal de instrumento tem controlos independentes organizados em múltiplas colunas.</p>
+
+                    <h2 id="grids-engine">Motor Grids</h2>
+                    <p>O motor Grids é uma transposição fiel do módulo Eurorack <a href="https://mutable-instruments.net/" target="_blank" rel="noopener">Mutable Instruments</a> Grids. Contém 25 nós de padrão pré-programados organizados numa grelha 5&times;5. Cada nó armazena três camadas rítmicas distintas &mdash; bombo, tarola e hi-hat &mdash; concebidas para funcionar musicalmente em conjunto.</p>
+                    <p>Quando move as coordenadas X/Y, o motor mistura suavemente entre os quatro nós circundantes usando interpolação bilinear, criando um contínuo infinito de variações rítmicas. Os nós estão organizados numa topologia musical curada, de modo que posições adjacentes fazem morphing entre estilos de bateria complementares em vez de saltar abruptamente.</p>
+                    <p>Cada passo num padrão tem um valor de <strong>nível</strong> (0&ndash;127) que representa a intensidade com que aquele toque &laquo;quer&raquo; tocar. O controlo <strong>Density</strong> atua como um limiar: apenas os passos cujo nível excede o limiar irão disparar. É por isso que aumentar Density adiciona gradualmente toques numa ordem musicalmente significativa &mdash; os ritmos mais fortes aparecem primeiro, depois os preenchimentos e ghost notes emergem à medida que se aumenta mais.</p>
+
+                    <h4>Canais Principais e de Acentuação</h4>
+                    <p>O Augmatic GRE executa <strong>seis instâncias Grids independentes</strong> &mdash; uma por canal. Todas as seis partilham a mesma posição X/Y e utilizam os mesmos dados de padrão, mas cada uma tem os seus próprios controlos de Density e Chaos.</p>
+                    <p>Isto significa que os canais de acentuação produzem <strong>ritmos complementares</strong>, não duplicados. Na mesma posição X/Y, um acento BD' com Density 20 dispara passos diferentes do BD principal com Density 64, porque o limiar de density filtra toques diferentes do mesmo padrão subjacente. Os ritmos mais fortes tocam no canal principal; os toques mais fracos e intermédios emergem no canal de acentuação.</p>
+                    <ul>
+                        <li><strong>Canais principais</strong> (BD, SN, HH) &mdash; transportam o ritmo principal. Ajuste Density a gosto (tipicamente 40&ndash;90).</li>
+                        <li><strong>Canais de acentuação</strong> (BD', SN', HH') &mdash; adicionam ghost notes, rimshots ou articulações alternativas. Density predefinido é 0 (silencioso). Aumente para 10&ndash;25 para começar a ouvir acentuações.</li>
+                    </ul>
+                    <p>Atribua notas MIDI diferentes aos canais de acentuação em relação ao canal principal (ex.: BD=bombo, BD'=rimshot) para disparar sons de bateria alternativos nos toques acentuados.</p>
+
+                    <h3>Density</h3>
+                    <p>Controla quantas notas cada instrumento gera. Density mais alto = mais notas.</p>
+                    <ul>
+                        <li><strong>0</strong>: Sem notas</li>
+                        <li><strong>64</strong>: Density médio (aproximadamente metade dos passos disponíveis disparam)</li>
+                        <li><strong>127</strong>: Density máximo (todos os passos disponíveis disparam)</li>
+                    </ul>
+                    <p>Os canais de acentuação têm predefinição 0. Aumente para 10&ndash;25 para começar a ouvir notas de acentuação.</p>
+
+                    <h3>Chaos</h3>
+                    <p>Adiciona aleatoriedade controlada aos padrões, criando variações de timing e velocity.</p>
+                    <ul>
+                        <li><strong>Slider Master Chaos</strong> (0&ndash;127, predefinição 0): Override global. Quando alterado, define TODOS os valores individuais de chaos para corresponder.</li>
+                        <li><strong>Chaos por canal</strong> (0&ndash;127, predefinição 0): Controlo independente por instrumento.</li>
+                    </ul>
+                    <p>Impacto do controlo Chaos:</p>
+                    <ul>
+                        <li><strong>0</strong>: Precisão mecânica, sem variação</li>
+                        <li><strong>5&ndash;15</strong>: Humanização subtil</li>
+                        <li><strong>30&ndash;50</strong>: Variação de groove perceptível</li>
+                        <li><strong>80&ndash;127</strong>: Imprevisível, experimental</li>
+                    </ul>
+                    <p><strong>Importante:</strong> O slider Master Chaos é um override de escrita apenas. Ajustá-lo sobrescreve todos os valores individuais de chaos. Para definir chaos diferente por canal, deixe o slider Master Chaos em 0 e use os controlos individuais.</p>
+
+                    <h3>Blend (Grids / Euclidiano)</h3>
+                    <p>Um controlo por canal que mistura entre os dois motores de padrões:</p>
+                    <ul>
+                        <li><strong>0.0</strong> (esquerda): 100% Motor Grids</li>
+                        <li><strong>0.5</strong> (centro): Mistura 50/50 &mdash; cada nota escolhe aleatoriamente de um dos motores</li>
+                        <li><strong>1.0</strong> (direita): 100% Sequenciador Euclidiano</li>
+                    </ul>
+                    <p>Predefinição: 0.0 (Grids) para todos os canais.</p>
+
+                    <h2 id="euclidean-engine">Motor Euclidiano</h2>
+                    <p>Cada canal tem três parâmetros Euclidianos:</p>
+                    <ul>
+                        <li><strong>Steps</strong> (2&ndash;32, predefinição 16): Comprimento do padrão em semicolcheias</li>
+                        <li><strong>Pulses</strong> (0 a Steps, predefinição 4): Número de toques distribuídos uniformemente pelo padrão</li>
+                        <li><strong>Start On</strong> (1 a Steps, predefinição 1): Em que passo o padrão começa. Start On = 1 significa que o primeiro toque cai no tempo 1 (sem deslocamento). Start On = N desloca o padrão para a direita para que o primeiro toque caia no passo N.</li>
+                    </ul>
+                    <p>O <a href="https://en.wikipedia.org/wiki/Euclidean_rhythm" target="_blank" rel="noopener">algoritmo de Bjorklund</a> distribui pulsos o mais uniformemente possível, criando ritmos encontrados na música tradicional:</p>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-bordered">
+                            <thead><tr><th>Notação</th><th>Steps</th><th>Pulses</th><th>Estilo</th><th>Descrição</th></tr></thead>
+                            <tbody>
+                                <tr><td>E(3,8)</td><td>8</td><td>3</td><td>Cubano</td><td>Tresillo &mdash; ritmo cubano fundamental</td></tr>
+                                <tr><td>E(5,8)</td><td>8</td><td>5</td><td>Afro-Cubano</td><td>Cinquillo &mdash; padrão clássico tipo clave</td></tr>
+                                <tr><td>E(5,12)</td><td>12</td><td>5</td><td>Afro-Cubano</td><td>Variação de son clave</td></tr>
+                                <tr><td>E(7,12)</td><td>12</td><td>7</td><td>Africano Ocidental</td><td>Padrão tradicional de campânula</td></tr>
+                                <tr><td>E(5,16)</td><td>16</td><td>5</td><td>Latino</td><td>Clave de rumba estendida a 16 passos</td></tr>
+                                <tr><td>E(7,16)</td><td>16</td><td>7</td><td>Moderno</td><td>Polirritmia densa e complexa</td></tr>
+                                <tr><td>E(5,13)</td><td>13</td><td>5</td><td>Africano Ocidental</td><td>Padrão clássico de campânula africana</td></tr>
+                                <tr><td>E(9,16)</td><td>16</td><td>9</td><td>Eletrónico</td><td>Padrão eletrónico moderno</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Exemplos visuais de padrões:</p>
+                    <pre><code>E(4,16) Start On=1:  X . . . X . . . X . . . X . . .
+E(4,16) Start On=3:  . . X . . . X . . . X . . . X .
+E(3,8)  Start On=1:  X . . X . . X .
+E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
+                    <p><strong>Auto-clamping:</strong> Quando reduz Steps, Pulses e Start On são automaticamente limitados a intervalos válidos. Por exemplo, reduzir Steps de 16 para 8 limita Pulses de 12 para 8 e Start On de 10 para 8.</p>
+
+                    <h2 id="groove-tools">Ferramentas de Groove</h2>
+                    <h3>Swing</h3>
+                    <p>Timing de swing por canal baseado no algoritmo Roger Linn.</p>
+                    <ul>
+                        <li><strong>Intervalo:</strong> -99 a +99</li>
+                        <li><strong>Predefinição:</strong> 0 (timing linear)</li>
+                        <li>Valores positivos atrasam as semicolcheias fora do tempo, criando uma sensação clássica de shuffle/swing</li>
+                        <li>Valores negativos antecipam as semicolcheias fora do tempo, criando uma sensação de aceleração</li>
+                        <li>Valores absolutos mais altos produzem swing mais pronunciado</li>
+                    </ul>
+
+                    <h3>Shift</h3>
+                    <p>Atraso temporal por canal que move as notas para a frente ou para trás no tempo.</p>
+                    <ul>
+                        <li><strong>Intervalo:</strong> 0&ndash;126 (63 = centro/desligado)</li>
+                        <li><strong>Predefinição:</strong> 63 (sem desfasamento)</li>
+                        <li>Valores abaixo de 63: as notas tocam mais cedo</li>
+                        <li>Valores acima de 63: as notas tocam mais tarde</li>
+                    </ul>
+                    <p>Shift é processado após a Matriz Linear Drumming &mdash; apenas as notas vencedoras são deslocadas.</p>
+
+                    <h3>Humanize</h3>
+                    <p>Variação aleatória de timing por canal que adiciona uma sensação humana.</p>
+                    <ul>
+                        <li><strong>Intervalo:</strong> 0&ndash;127</li>
+                        <li><strong>Predefinição:</strong> 0 (sem humanização)</li>
+                        <li>Valores mais altos adicionam mais desfasamento temporal aleatório a cada nota</li>
+                    </ul>
+
+                    <h3>Clock Divider</h3>
+                    <p>Multiplicador/divisor de tempo por canal que altera a velocidade de reprodução de cada instrumento independentemente.</p>
+                    <p>18 rácios disponíveis, de <strong>/8</strong> (8x mais lento) passando por <strong>x1</strong> (normal, predefinição) até <strong>x8</strong> (8x mais rápido): /8, /7, /6, /5, /4, /3, /2, /1.5, x1, x1.5, x2, x2.5, x3, x4, x5, x6, x7, x8.</p>
+
+                    <h3>Note Length</h3>
+                    <p>Definição global que controla a duração de cada nota MIDI (o intervalo entre NOTE ON e NOTE OFF).</p>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-bordered">
+                            <thead><tr><th>Definição</th><th>Duração</th></tr></thead>
+                            <tbody>
+                                <tr><td>4n</td><td>Semínima</td></tr>
+                                <tr><td>8n</td><td>Colcheia</td></tr>
+                                <tr><td>16n</td><td>Semicolcheia (predefinição)</td></tr>
+                                <tr><td>32n</td><td>Fusa</td></tr>
+                                <tr><td>64n</td><td>Semifusa</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Velocity Tab -->
+                <section id="velocity-tab">
+                    <h2>Separador Velocity</h2>
+                    <img src="../img/screenshots/tab-3-velocity.png" class="img-fluid rounded mb-4" alt="Augmatic GRE — Separador Velocity">
+                    <p>O separador VELOCITY controla a velocity de saída (volume/intensidade) das notas MIDI de cada instrumento.</p>
+
+                    <h3>LEVEL</h3>
+                    <p>Um valor de velocity por canal que <strong>substitui</strong> completamente a velocity do motor. Qualquer velocity que o motor Grids ou Euclidiano produza é descartada; o valor LEVEL é usado em vez disso.</p>
+                    <ul>
+                        <li><strong>Intervalo:</strong> 1&ndash;127</li>
+                        <li><strong>Predefinição:</strong> 120 para todos os canais</li>
+                    </ul>
+
+                    <h3>Velocity Randomization</h3>
+                    <p>Adiciona variação aleatória por canal em torno do valor LEVEL.</p>
+                    <ul>
+                        <li><strong>Intervalo:</strong> 0&ndash;100%</li>
+                        <li><strong>Predefinição:</strong> 0% (sem aleatorização)</li>
+                        <li>A 20%, um LEVEL de 100 produziria velocities aproximadamente entre 80 e 120</li>
+                    </ul>
+
+                    <h3>Velocity Bender</h3>
+                    <p>O Velocity Bender modula a velocity usando um LFO sincronizado ao compasso. Cria padrões de acentuação dinâmicos e &laquo;respiratórios&raquo; que evoluem ao longo do tempo.</p>
+
+                    <h4>Botões de Ativação por Instrumento</h4>
+                    <p>Cada linha de instrumento tem um botão de alternância <strong>B</strong> (Bender). Toque para ativar ou desativar o Velocity Bender para esse canal. Todos estão <strong>ativados por predefinição</strong>. Instrumentos desativados ignoram o Velocity Bender e mantêm a sua velocity LEVEL.</p>
+
+                    <h4>Knobs de Divisão Rítmica</h4>
+                    <p>Quatro knobs bipolares controlam a intensidade com que cada divisão rítmica contribui para a curva LFO:</p>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-bordered">
+                            <thead><tr><th>Knob</th><th>Divisão Rítmica</th><th>Descrição</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>2n</strong></td><td>Mínima</td><td>Modulação lenta e ampla ao longo de 2 tempos</td></tr>
+                                <tr><td><strong>4n</strong></td><td>Semínima</td><td>Modulação alinhada ao pulso em cada tempo</td></tr>
+                                <tr><td><strong>4nt</strong></td><td>Tercina de semínima</td><td>Sensação de tercina &mdash; 3 ciclos por 2 tempos</td></tr>
+                                <tr><td><strong>8n</strong></td><td>Colcheia</td><td>Modulação rápida, duas vezes por tempo</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Cada knob varia de <strong>-1.0</strong> a <strong>+1.0</strong> com 0.0 no centro (sem modulação). Valores positivos criam picos, valores negativos criam vales nessa divisão. Os quatro componentes são combinados numa única curva LFO suave.</p>
+
+                    <h4>Visualização da Forma de Onda e Botões</h4>
+                    <p>Uma visualização em tempo real mostra a forma combinada do LFO, atualizada a 30 FPS à medida que ajusta os knobs. Linhas de grelha marcam as divisões rítmicas para referência visual.</p>
+                    <ul>
+                        <li><strong>RANDOM</strong> &mdash; aleatoriza os quatro knobs</li>
+                        <li><strong>RESET</strong> &mdash; repõe todos os knobs no centro (0.0)</li>
+                    </ul>
+                    <p>O Velocity Bender é a <strong>etapa final de processamento de velocity</strong> antes da saída MIDI. Multiplica a velocity LEVEL pelo valor do LFO, de modo que a modulação é proporcional.</p>
+                </section>
+
+                <!-- Linear Tab -->
+                <section id="linear-tab">
+                    <h2>Separador Linear</h2>
+                    <img src="../img/screenshots/tab-2-linear.png" class="img-fluid rounded mb-4" alt="Augmatic GRE — Separador Linear">
+                    <p>O separador LINEAR controla o fluxo do sinal MIDI através de uma matriz de 12 colunas. Fornece filtragem por probabilidade, controlos mute/solo e um sistema de 6 níveis de prioridade para resolver notas simultâneas.</p>
+
+                    <h3>Cadeia de Sinal</h3>
+                    <pre><code>Saída do Motor -> Probability Pre -> Mute Pre -> Solo Pre -> Matriz Linear Drumming -> Mute Post -> Probability Post -> Solo Post -> Saída MIDI</code></pre>
+                    <p>Os controlos à esquerda (Probability Pre, Mute Pre, Solo Pre) afetam as notas <strong>antes</strong> do processamento de prioridade. Os controlos à direita (Probability Post, Solo Post, Mute Post) afetam as notas <strong>depois</strong> do processamento de prioridade.</p>
+
+                    <h3>Probability Pre / Probability Post</h3>
+                    <p>Knobs (0&ndash;100%) que filtram notas aleatoriamente.</p>
+                    <ul>
+                        <li><strong>Probability Pre:</strong> Filtra notas antes do processamento de prioridade. Notas removidas são como se nunca tivessem existido &mdash; outros instrumentos preenchem naturalmente.</li>
+                        <li><strong>Probability Post:</strong> Filtra notas após o processamento de prioridade. Cria lacunas no padrão.</li>
+                        <li><strong>100%</strong> (predefinição): Todas as notas passam</li>
+                        <li><strong>50%:</strong> Aproximadamente metade das notas são removidas aleatoriamente</li>
+                        <li><strong>0%:</strong> Todas as notas bloqueadas</li>
+                    </ul>
+                    <p>Ao usar ambos, as probabilidades multiplicam-se: Probability Pre=80% e Probability Post=50% significa que aproximadamente 40% das notas sobrevivem.</p>
+
+                    <h3>Mute Pre / Mute Post</h3>
+                    <p>Botões de alternância que silenciam instrumentos.</p>
+                    <ul>
+                        <li><strong>Mute Pre:</strong> Silencia antes da prioridade. Outros instrumentos continuam normalmente (sem lacunas).</li>
+                        <li><strong>Mute Post:</strong> Silencia após a prioridade. Deixa lacunas onde o instrumento teria tocado.</li>
+                        <li>Mute Pre e Mute Post são mutuamente exclusivos por instrumento. Ativar um desativa o outro.</li>
+                    </ul>
+
+                    <h3>Solo Pre / Solo Post</h3>
+                    <p>Botões de alternância que isolam instrumentos.</p>
+                    <ul>
+                        <li><strong>Solo Pre:</strong> Quando qualquer Solo Pre está ativado, apenas os instrumentos com Solo Pre ativado tocam. Ignora a filtragem de prioridade.</li>
+                        <li><strong>Solo Post:</strong> Solo após o processamento de prioridade. Mostra lacunas da prioridade.</li>
+                        <li>Solo Pre e Solo Post são mutuamente exclusivos por instrumento. Ativar um desativa o outro.</li>
+                        <li>Se qualquer solo estiver ativado, todos os instrumentos não solados são silenciados.</li>
+                    </ul>
+
+                    <h3>Matriz Linear Drumming</h3>
+                    <p>Determina qual instrumento vence quando múltiplas notas disparam simultaneamente.</p>
+                    <ul>
+                        <li>Cada instrumento tem exatamente um nível de prioridade. Lado esquerdo = prioridade mais alta</li>
+                        <li>Quando notas colidem, apenas o instrumento com maior prioridade toca</li>
+                        <li>Instrumentos de menor prioridade são silenciados pela duração definida em <strong>Linear Grid</strong> (ver <a href="#settings-tab">Separador Settings</a>)</li>
+                    </ul>
+                    <p><strong>Mesma prioridade:</strong> Se dois instrumentos partilham o mesmo nível de prioridade, ambos tocam ao mesmo tempo. Definir todos os instrumentos com a mesma prioridade desativa efetivamente a filtragem de prioridade.</p>
+                </section>
+
+                <!-- Settings Tab -->
+                <section id="settings-tab">
+                    <h2>Separador Settings</h2>
+                    <img src="../img/screenshots/tab-4-settings.png" class="img-fluid rounded mb-4" alt="Augmatic GRE — Separador Settings">
+                    <p>O separador SETTINGS gere atribuições de notas MIDI, mapeamentos MIDI e nomes personalizados de instrumentos.</p>
+
+                    <h3>Sistema de Mapeamento MIDI</h3>
+                    <p>Os mapeamentos MIDI armazenam atribuições de notas independentemente dos presets. Isto significa que pode carregar presets diferentes (definições de padrões) mantendo as mesmas atribuições de notas para a sua drum machine.</p>
+                    <p><strong>Carregar um Mapeamento:</strong></p>
+                    <ol>
+                        <li>Toque no painel de Mapeamento MIDI</li>
+                        <li>Abre-se um dropdown com os mapeamentos disponíveis</li>
+                        <li>Toque num nome de mapeamento para o carregar</li>
+                        <li>Ou use as setas <code>&lt;</code> / <code>&gt;</code> para navegar</li>
+                    </ol>
+                    <p><strong>Guardar um Mapeamento:</strong></p>
+                    <ol>
+                        <li>Toque no painel de Mapeamento MIDI para abrir o dropdown</li>
+                        <li>Toque em &laquo;Save&raquo; para sobrescrever o mapeamento atual, ou &laquo;Save As&raquo; para criar um novo</li>
+                        <li>Introduza um nome e confirme</li>
+                    </ol>
+                    <p><strong>Eliminar um Mapeamento:</strong></p>
+                    <ol>
+                        <li>Abra o dropdown, toque em &laquo;Delete&raquo;</li>
+                        <li>Confirme a eliminação</li>
+                    </ol>
+                    <p><strong>Organização:</strong> Coloque ficheiros XML de mapeamento em subpastas dentro do diretório MIDI Mappings para categorização. As subpastas aparecem como linhas de pasta no dropdown.</p>
+                    <p><strong>Mapeamentos de Fábrica:</strong> Os mapeamentos incorporados são instalados automaticamente no primeiro lançamento.</p>
+                    <p><strong>Princípio fundamental:</strong> Carregar um preset NÃO altera notas MIDI. Carregar um mapeamento NÃO altera definições de padrões. Os dois sistemas são completamente independentes.</p>
+
+                    <h3>Nomes Personalizados de Instrumentos</h3>
+                    <p>Pode renomear as etiquetas de visualização de qualquer instrumento para ter uma melhor indicação de qual instrumento está realmente a tocar:</p>
+                    <ol>
+                        <li><strong>Duplo clique</strong> (ou duplo toque no iPad) em qualquer etiqueta de instrumento no separador Settings</li>
+                        <li>Aparece um diálogo de renomeação com um campo de texto (máximo 3 caracteres)</li>
+                        <li>Introduza o novo nome e toque em <strong>Save</strong></li>
+                    </ol>
+                    <p><strong>Restaurar:</strong> Repõe o canal com o nome de fábrica predefinido (BD, SN, HH, BD', SN', HH').</p>
+                    <p>Os nomes personalizados são armazenados em ficheiros de mapeamento MIDI. Renomear marca o mapeamento atual como modificado (indicado com um asterisco). Guarde o mapeamento após renomear para persistir as alterações.</p>
+                </section>
+
+                <!-- Preset System -->
+                <section id="preset-system">
+                    <h2>Sistema de Presets</h2>
+                    <p>Os presets armazenam todas as definições de padrão, timing, velocity e mistura. NÃO armazenam atribuições de notas MIDI (essas são geridas separadamente pelos Mapeamentos MIDI).</p>
+
+                    <h3>Carregar Presets</h3>
+                    <ul>
+                        <li>Toque no painel de Presets no canto superior esquerdo da interface</li>
+                        <li>Um dropdown mostra presets de fábrica e presets do utilizador</li>
+                        <li>Toque num nome de preset para o carregar imediatamente</li>
+                        <li>Use as setas <code>&lt;</code> / <code>&gt;</code> para navegar entre presets</li>
+                    </ul>
+
+                    <h3>Guardar Presets</h3>
+                    <ol>
+                        <li>Configure todos os parâmetros conforme desejado</li>
+                        <li>Abra o dropdown do painel de Presets</li>
+                        <li>Toque em &laquo;Save&raquo; (sobrescrever) ou &laquo;Save As&raquo; (novo preset)</li>
+                        <li>Introduza um nome e confirme</li>
+                    </ol>
+
+                    <h3>Randomize</h3>
+                    <p>O sistema de presets inclui uma função <strong>Randomize</strong> que gera valores aleatórios para todos os parâmetros. As atribuições de notas MIDI são excluídas da aleatorização (permanecem inalteradas).</p>
+
+                    <h3>Presets de Fábrica vs Presets do Utilizador</h3>
+                    <ul>
+                        <li><strong>Presets de fábrica</strong> vêm com o plugin e não podem ser eliminados</li>
+                        <li><strong>Presets do utilizador</strong> são armazenados como ficheiros XML e podem ser guardados, eliminados e partilhados</li>
+                        <li>Um indicador de modificação (asterisco) aparece quando o preset atual foi editado desde o carregamento</li>
+                    </ul>
+
+                    <h3>O Que os Presets Incluem</h3>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-bordered">
+                            <thead><tr><th>Incluído</th><th>Não Incluído</th></tr></thead>
+                            <tbody>
+                                <tr><td>Density, Chaos, Map X/Y</td><td>Atribuições de notas MIDI</td></tr>
+                                <tr><td>Euclidean Steps/Pulses/Start On</td><td>Canal MIDI (predefinição Canal 10, configurável no standalone)</td></tr>
+                                <tr><td>Blend, Swing, Shift, Humanize</td><td>Dispositivo de saída MIDI</td></tr>
+                                <tr><td>Rácios de Clock Divider</td><td>Nomes personalizados de instrumentos</td></tr>
+                                <tr><td>Velocity LEVEL, Randomization</td><td></td></tr>
+                                <tr><td>Definições do Velocity Bender</td><td></td></tr>
+                                <tr><td>Atribuições da Matriz Linear Drumming</td><td></td></tr>
+                                <tr><td>Estados de Mute/Solo/Probability</td><td></td></tr>
+                                <tr><td>Linear Grid, Note Length</td><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Signal Flow -->
+                <section id="signal-flow">
+                    <h2>Fluxo de Sinal MIDI</h2>
+                    <p>O percurso completo do sinal desde a geração de padrões até à saída MIDI:</p>
+                    <pre><code>
+Motor de Padrões (Grids ou Euclidiano, selecionado por Blend)
+    |
+    v
+Controlador de Velocity (LEVEL substitui velocity, aplica Randomization)
+    |
+    v
+Probability Pre (filtragem aleatória, pré-prioridade)
+    |
+    v
+Mute Pre (pré-prioridade, sem lacunas)
+    |
+    v
+Solo Pre (pré-prioridade, padrão completo)
+    |
+    v
+Matriz Linear Drumming (resolve notas simultâneas)
+    |
+    v
+Mute Post (pós-prioridade, deixa lacunas)
+    |
+    v
+Probability Post (filtragem aleatória, pós-prioridade)
+    |
+    v
+Solo Post (pós-prioridade, com lacunas de prioridade)
+    |
+    v
+Velocity Bender (modulação de velocity por LFO)
+    |
+    v
+Shift / Humanize (atraso temporal)
+    |
+    v
+Saída MIDI (Note On/Off no Canal 10)</code></pre>
+                </section>
+
+                <!-- DAW Automation -->
+                <section id="daw-automation">
+                    <h2>Automação DAW</h2>
+                    <p>Todos os 135 parâmetros são expostos à sua DAW para automação.</p>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-bordered">
+                            <thead><tr><th>Grupo</th><th>Parâmetros</th><th>Por Canal</th></tr></thead>
+                            <tbody>
+                                <tr><td>Pattern Morphing</td><td>Map X, Map Y</td><td>Global</td></tr>
+                                <tr><td>Density</td><td>BD/SN/HH/BD'/SN'/HH'</td><td>Sim</td></tr>
+                                <tr><td>Chaos</td><td>Master + 6 individuais</td><td>Sim</td></tr>
+                                <tr><td>Blend</td><td>Mistura Grids/Euclidiano</td><td>Sim</td></tr>
+                                <tr><td>Euclidean</td><td>Steps, Pulses, Start On</td><td>Sim</td></tr>
+                                <tr><td>Swing</td><td>Desfasamento de timing</td><td>Sim</td></tr>
+                                <tr><td>Shift</td><td>Atraso temporal</td><td>Sim</td></tr>
+                                <tr><td>Humanize</td><td>Timing aleatório</td><td>Sim</td></tr>
+                                <tr><td>Clock Ratio</td><td>Multiplicador de tempo</td><td>Sim</td></tr>
+                                <tr><td>Velocity Level</td><td>Velocity de saída</td><td>Sim</td></tr>
+                                <tr><td>Velocity Random</td><td>Quantidade de aleatorização</td><td>Sim</td></tr>
+                                <tr><td>Velocity Bender</td><td>Ativação + 4 knobs</td><td>Por instrumento + global</td></tr>
+                                <tr><td>Probability</td><td>Probability Pre, Probability Post</td><td>Sim</td></tr>
+                                <tr><td>Mute</td><td>Mute Pre, Mute Post</td><td>Sim</td></tr>
+                                <tr><td>Solo</td><td>Solo Pre, Solo Post</td><td>Sim</td></tr>
+                                <tr><td>Priority</td><td>Nível 1&ndash;6</td><td>Sim</td></tr>
+                                <tr><td>Notas MIDI</td><td>Número da nota</td><td>Sim</td></tr>
+                                <tr><td>Note Length</td><td>Duração</td><td>Global</td></tr>
+                                <tr><td>Linear Grid</td><td>Duração</td><td>Global</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Tips -->
+                <section id="tips">
+                    <h2>Dicas e Fluxos de Trabalho</h2>
+
+                    <h3>Criar Padrões em Evolução</h3>
+                    <p>Automatize Map X e Map Y ao longo de 8&ndash;16 compassos para fazer morphing entre diferentes estilos de padrões. Comece com movimentos subtis perto de um ponto da grelha, depois varra todo o alcance para mudanças dramáticas.</p>
+
+                    <h3>Humanizar Padrões Rígidos</h3>
+                    <ol>
+                        <li>Defina Chaos por canal a 5&ndash;15 para variações subtis de timing</li>
+                        <li>Adicione Velocity Randomization a 10&ndash;20% para variação dinâmica</li>
+                        <li>Use Humanize a 10&ndash;30 para desfasamentos de micro-timing</li>
+                        <li>Aplique Swing a 10&ndash;30 para sensação de groove</li>
+                    </ol>
+
+                    <h3>Linear Drumming</h3>
+                    <p>Use a Matriz Linear Drumming para criar padrões onde apenas uma voz toca de cada vez:</p>
+                    <ol>
+                        <li>Atribua SN à Prioridade 1, BD à Prioridade 2, HH à Prioridade 3</li>
+                        <li>Defina Linear Grid para 16n ou 8n</li>
+                        <li>Quando notas colidem, apenas o instrumento com maior prioridade toca</li>
+                        <li>Instrumentos de menor prioridade são silenciados durante a duração da grelha</li>
+                    </ol>
+
+                    <h3>Combinar Grids e Euclidiano</h3>
+                    <p>Use o controlo Blend para misturar motores por canal:</p>
+                    <ul>
+                        <li><strong>BD em Grids, HH em Euclidiano:</strong> Defina BD Blend para 0.0, HH Blend para 1.0</li>
+                        <li><strong>Transição gradual:</strong> Automatize Blend de 0.0 a 1.0 ao longo de vários compassos</li>
+                        <li><strong>Alternância aleatória:</strong> Defina Blend para 0.5 para cada nota vir aleatoriamente de um dos motores</li>
+                    </ul>
+
+                    <h3>Configurar Camadas de Acentuação</h3>
+                    <ol>
+                        <li>Mantenha as densidades dos canais de acentuação (BD', SN', HH') baixas (10&ndash;25)</li>
+                        <li>Atribua notas MIDI diferentes às acentuações (ex.: BD=C0, BD'=D0 para rimshot)</li>
+                        <li>Dê prioridade mais baixa às acentuações (4&ndash;6) para cederem aos toques principais</li>
+                        <li>Use o Velocity Bender para modular a velocity das acentuações ao longo do tempo</li>
+                    </ol>
+
+                    <h3>Polirritmias com Euclidiano</h3>
+                    <p>Atribua contagens de passos diferentes a canais diferentes:</p>
+                    <ul>
+                        <li>BD: E(4,16) Start On=1 &mdash; padrão standard four-on-the-floor</li>
+                        <li>SN: E(3,8) &mdash; padrão Tresillo</li>
+                        <li>HH: E(7,12) &mdash; campânula Africana Ocidental</li>
+                    </ul>
+                    <p>Combinado com diferentes rácios de Clock Divider, isto cria texturas polirrítmicas complexas.</p>
+
+                    <h3>Padrões Esparsos e Generativos</h3>
+                    <ol>
+                        <li>Reduza Probability Pre para 40&ndash;60% em todos os canais</li>
+                        <li>Defina Chaos moderado (30&ndash;50)</li>
+                        <li>Use padrões Euclidianos diferentes por canal com contagens de passos ímpares</li>
+                        <li>Defina Linear Grid para 4n para lacunas de prioridade pronunciadas</li>
+                        <li>Ative o Velocity Bender com valores aleatórios nos knobs</li>
+                    </ol>
+                </section>
+
+                <!-- Standalone Mode -->
+                <section id="standalone-mode">
+                    <h2>Modo Standalone</h2>
+                    <img src="../img/screenshots/tab-4-settings-standalone.png" class="img-fluid rounded mb-4" alt="Augmatic GRE — Separador Settings (Modo Standalone)">
+                    <p>O Augmatic GRE pode funcionar como aplicação standalone tanto no macOS como no iPad, independente de qualquer DAW. No modo standalone, a aplicação fornece o seu próprio relógio interno e encaminhamento de saída MIDI. O modo standalone é suficiente para controlar um sampler de bateria ou sintetizador, mas para configurações que incluam vários instrumentos sincronizados temporalmente, recomendamos usar uma aplicação host que gira a sincronização do relógio, mapeamento de MIDI CC, etc.</p>
+
+                    <h3>AUv3 vs Standalone</h3>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-bordered">
+                            <thead><tr><th>Funcionalidade</th><th>Plugin AUv3</th><th>Aplicação Standalone</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Transporte</strong></td><td>Controlado pela DAW host &mdash; Play/Stop, posição na timeline</td><td>Botão interno Play/Stop e atalho Barra de Espaço (macOS)</td></tr>
+                                <tr><td><strong>BPM</strong></td><td>Sincronizado do host &mdash; sem controlo de BPM visível</td><td>Ajustável no separador Settings (40&ndash;240 BPM)</td></tr>
+                                <tr><td><strong>Saída MIDI</strong></td><td>Encaminhada pelo bus MIDI do host</td><td>Selecionável no separador Settings &mdash; porta virtual ou dispositivo MIDI hardware</td></tr>
+                                <tr><td><strong>Canal MIDI</strong></td><td>Fixo no Canal 10 (GM Drums)</td><td>Selecionável no separador Settings (1&ndash;16, predefinição 10)</td></tr>
+                                <tr><td><strong>Botão Play/Stop</strong></td><td>Oculto &mdash; o host controla o transporte</td><td>Visível à direita do slider Master Chaos</td></tr>
+                                <tr><td><strong>Automação DAW</strong></td><td>Todos os 135 parâmetros expostos ao host</td><td>Não disponível</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Controlos de Transporte (Apenas Standalone)</h3>
+                    <p>No modo standalone, a aplicação tem o seu próprio transporte uma vez que não há DAW host para o fornecer:</p>
+                    <ul>
+                        <li><strong>Botão Play/Stop</strong> &mdash; aparece à direita do slider Master Chaos. Clique para iniciar/parar o relógio interno. Este botão não está disponível quando em execução como plugin AUv3.</li>
+                        <li><strong>Atalho Barra de Espaço</strong> (macOS) &mdash; alterna a reprodução</li>
+                    </ul>
+                    <p>No modo AUv3, o transporte é totalmente controlado pelo host: prima Play na sua DAW e o Augmatic GRE começa a gerar padrões. BPM, posição na timeline e estado play/stop sincronizam automaticamente.</p>
+
+                    <h3>Diferenças no Separador Settings</h3>
+                    <p>O separador Settings mostra controlos adicionais no modo standalone que não estão disponíveis quando em execução como plugin AUv3:</p>
+                    <div class="table-responsive">
+                        <table class="table table-dark table-bordered">
+                            <thead><tr><th>Controlo</th><th>Descrição</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>BPM</strong></td><td>Tempo interno, 40&ndash;240. Deslize/arraste para alterar. No modo AUv3, o BPM é fornecido pelo host.</td></tr>
+                                <tr><td><strong>MIDI CHANNEL</strong></td><td>Canal de saída 1&ndash;16, predefinição 10 (GM Drums). No modo AUv3, a saída é fixa no Canal 10.</td></tr>
+                                <tr><td><strong>MIDI OUT</strong></td><td>Selecione o dispositivo de saída: porta virtual ou MIDI hardware. No modo AUv3, o MIDI é encaminhado pelo host.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>O BPM é guardado nos presets, mas apenas utilizado no Modo Standalone. O canal MIDI e o dispositivo de saída são persistidos independentemente.</p>
+
+                    <h4>macOS Standalone</h4>
+                    <ul>
+                        <li>A janela abre a 1200 &times; 444 com proporção 2.7:1</li>
+                        <li>Redimensionável (600&ndash;1920 de largura) com barra de título nativa do macOS</li>
+                    </ul>
+                </section>
+
+                <!-- File Storage -->
+                <section id="file-storage">
+                    <h2>Armazenamento de Ficheiros</h2>
+                    <p>Os presets e mapeamentos MIDI são armazenados como ficheiros XML em diretórios específicos da plataforma. O conteúdo de fábrica (incluído com a aplicação) e o conteúdo criado pelo utilizador são mantidos em subdiretórios separados para que as atualizações da aplicação nunca sobrescrevam ou eliminem os seus presets personalizados.</p>
+
+                    <h3>iOS / iPadOS</h3>
+                    <p>No iOS, os presets e mapeamentos MIDI são armazenados no diretório Documents da aplicação, visível na aplicação Ficheiros em <strong>No Meu iPad &gt; Augmatic GRE</strong>.</p>
+                    <ul>
+                        <li><strong>Presets de Fábrica:</strong> <code>Documents/Presets/Factory/</code></li>
+                        <li><strong>Presets do Utilizador:</strong> <code>Documents/Presets/User/</code></li>
+                        <li><strong>Mapeamentos MIDI de Fábrica:</strong> <code>Documents/MIDI Mappings/Factory/</code></li>
+                        <li><strong>Mapeamentos MIDI do Utilizador:</strong> <code>Documents/MIDI Mappings/User/</code></li>
+                    </ul>
+                    <p>Pode navegar, copiar e partilhar estes ficheiros diretamente a partir da aplicação Ficheiros do iOS. Para importar um preset que alguém partilhou consigo, basta colocar o ficheiro XML na pasta <code>User/</code> apropriada.</p>
+
+                    <h4>AUv3 &mdash; Acesso pela Aplicação Ficheiros</h4>
+                    <p>Quando em execução como plugin AUv3 dentro de um host (AUM, Cubasis, Drambo, etc.), o plugin necessita de permissão para aceder à pasta Documents da aplicação standalone. Na primeira utilização, aparece um botão azul <strong>&laquo;Enable Files App Access&raquo;</strong> no topo da interface do plugin.</p>
+                    <ol>
+                        <li>Toque no botão</li>
+                        <li>Abre-se um seletor de pastas, pré-navegado para a pasta Documents do Augmatic GRE</li>
+                        <li>Toque em <strong>Open</strong> para conceder acesso</li>
+                    </ol>
+                    <p>Após esta configuração única, os presets que guardar no AUv3 ficam imediatamente visíveis na aplicação Ficheiros &mdash; sem necessidade de abrir a aplicação standalone. A permissão persiste entre reinícios da aplicação e do dispositivo.</p>
+                    <p>Se saltar este passo, o AUv3 continua a funcionar normalmente mas utiliza uma área de armazenamento interna não visível na aplicação Ficheiros.</p>
+
+                    <h3>macOS</h3>
+                    <ul>
+                        <li><strong>Presets de Fábrica:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/Presets/Factory/</code></li>
+                        <li><strong>Presets do Utilizador:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/Presets/User/</code></li>
+                        <li><strong>Mapeamentos MIDI de Fábrica:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/MIDI&nbsp;Mappings/Factory/</code></li>
+                        <li><strong>Mapeamentos MIDI do Utilizador:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/MIDI&nbsp;Mappings/User/</code></li>
+                    </ul>
+                </section>
+
+            </div><!-- .manual-content -->
+
+        </div><!-- .container -->
+    </div><!-- .manual-page -->
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-1">&copy; 2026 - Desenhado e <a href="../vibe-coding.html" class="text-inherit">Vibe-coded</a> por Artur Nowak. <a href="../../src/" class="text-inherit">Open Source</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
