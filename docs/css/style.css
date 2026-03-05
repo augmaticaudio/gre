@@ -526,6 +526,69 @@ a .compat-badge:hover {
     opacity: 0.7;
 }
 
+/* User Reviews */
+.reviews {
+    padding: 2.5rem 0;
+    background-color: var(--gre-darker);
+}
+
+#reviewCarousel {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: 2.5rem;
+}
+
+.review-card {
+    text-align: center;
+    padding: 2.5rem 3rem;
+}
+
+.review-text {
+    font-size: 1.35rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--gre-text);
+    margin-bottom: 1.25rem;
+}
+
+.review-author {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gre-accent);
+    margin-bottom: 0;
+}
+
+.review-indicators {
+    position: relative;
+    bottom: 0;
+    margin-top: 1rem;
+}
+
+.review-indicators button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--gre-text-muted);
+    border: none;
+    opacity: 0.4;
+}
+
+.review-indicators button.active {
+    background-color: var(--gre-accent);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .review-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .review-text {
+        font-size: 1.1rem;
+    }
+}
+
 /* Wide screenshot between sections */
 .screenshot-wide {
     max-width: 100%;
@@ -648,6 +711,11 @@ a .compat-badge:hover {
 .manual-content {
     max-width: 800px;
     margin: 0 auto;
+}
+
+.manual-content section,
+.manual-content [id] {
+    scroll-margin-top: 5rem;
 }
 
 .manual-content section {

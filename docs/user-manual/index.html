@@ -23,6 +23,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="../user-manual/index.html">Manual</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../changelog.html">Changelog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../vibe-coding.html">Vibe Coding</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../privacy.html">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -41,7 +46,7 @@
             <div class="manual-header text-center">
                 <h1>Augmatic GRE</h1>
                 <h1>User Manual</h1>
-                <p class="lead text-muted">Version 1.0 - 2026-02-15.</p>
+                <p class="lead text-muted">For software version 1.0 - 2026-02-15 - <a href="../changelog.html">Changelog</a>.</p>
                 <p class="lead text-muted">AUv3 MIDI Drum Pattern Generator for iPad, iPhone and macOS.</p>
             </div>
 
@@ -56,6 +61,7 @@
                     <li><a href="#xy-pad">X/Y Pad</a></li>
                     <li><a href="#pattern-tab">Pattern Tab</a></li>
                     <li><a href="#grids-engine">Grids Engine</a></li>
+                    <li><a href="#blend">Blend</a></li>
                     <li><a href="#euclidean-engine">Euclidean Engine</a></li>
                     <li><a href="#groove-tools">Groove Tools</a></li>
                     <li><a href="#velocity-tab">Velocity Tab</a></li>
@@ -170,6 +176,7 @@
                         <li><strong>Accent channels</strong> (BD', SN', HH') &mdash; add ghost notes, rimshots, or alternative articulations. Default Density is 0 (silent). Increase to 10&ndash;25 to start hearing accents.</li>
                     </ul>
                     <p>Assign accent channels to different MIDI notes than their parent (e.g., BD=bass drum, BD'=rimshot) to trigger alternative drum sounds on the accent hits.</p>
+                    <p>In the original Mutable Instruments Grids hardware, accent outputs fire on the strongest hits in a pattern &mdash; those with an internal level above 192 (out of 255). To replicate this behavior in Augmatic GRE, set the accent channel's Density to &asymp;25%. Lower values produce a sparser pattern; higher values include weaker hits and output a busier pattern than the original implementation.</p>
 
                     <h3>Density</h3>
                     <p>Controls how many notes each instrument generates. Higher density = more notes.</p>
@@ -195,7 +202,7 @@
                     </ul>
                     <p><strong>Important:</strong> Master Chaos slider is a write-only override. Adjusting it overwrites all individual chaos values. To set different chaos per channel, leave Master Chaos slider at 0 and use the individual controls.</p>
 
-                    <h3>Blend (Grids / Euclidean)</h3>
+                    <h2 id="blend">Blend (Grids &lt;&gt; Euclidean)</h2>
                     <p>A per-channel control that mixes between the two pattern engines:</p>
                     <ul>
                         <li><strong>0.0</strong> (left): 100% Grids Engine</li>
@@ -290,11 +297,12 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p>The VELOCITY tab controls the output velocity (volume/intensity) of each instrument's MIDI notes.</p>
 
                     <h3>LEVEL</h3>
-                    <p>A per-channel velocity value that <strong>replaces</strong> the engine's velocity entirely. Whatever velocity the Grids or Euclidean engine produces is discarded; the LEVEL value is used instead.</p>
+                    <p>A per-channel velocity value.</p>
                     <ul>
-                        <li><strong>Range:</strong> 1&ndash;127</li>
+                        <li><strong>Range:</strong> 0&ndash;127 (0 = mute)</li>
                         <li><strong>Default:</strong> 120 for all channels</li>
                     </ul>
+                    <p>Setting LEVEL to <strong>0</strong> mutes the channel. Per the MIDI specification, velocity 0 means Note Off &mdash; no MIDI note is sent. This mutes the channel after a pulse was passed through by LINEAR DRUMMING.</p>
 
                     <h3>Velocity Randomization</h3>
                     <p>Adds per-channel random variation around the LEVEL value.</p>
@@ -341,7 +349,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p>The LINEAR tab controls the MIDI signal flow through a 12-column matrix. It provides probability filtering, mute/solo controls, and a 6-level priority system for resolving simultaneous notes.</p>
 
                     <h3>Signal Chain</h3>
-                    <pre><code>Engine Output -> Probability Pre -> Mute Pre -> Solo Pre -> Linear Drumming Matrix -> Mute Post -> Probability Post -> Solo Post -> MIDI Output</code></pre>
+                    <pre><code>Engine Output -> Probability Pre -> Mute Pre -> Solo Pre -> Linear Drumming Matrix -> Mute Post -> Probability Post -> Solo Post -> Velocity -> Velocity Bender -> MIDI Output</code></pre>
                     <p>Controls on the left (Probability Pre, Mute Pre, Solo Pre) affect notes <strong>before</strong> priority processing. Controls on the right (Probability Post, Solo Post, Mute Post) affect notes <strong>after</strong> priority processing.</p>
 
                     <h3>Probability Pre / Probability Post</h3>
@@ -481,7 +489,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
 Pattern Engine (Grids or Euclidean, selected by Blend)
     |
     v
-Velocity Controller (LEVEL replaces velocity, applies Randomization)
+Chaos (random velocity/trigger variation)
     |
     v
 Probability Pre (random filtering, pre-priority)
@@ -503,6 +511,9 @@ Probability Post (random filtering, post-priority)
     |
     v
 Solo Post (post-priority, with priority gaps)
+    |
+    v
+Velocity Controller (LEVEL replaces velocity, applies Randomization)
     |
     v
 Velocity Bender (LFO velocity modulation)

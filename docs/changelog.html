@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - Augmatic GRE</title>
+    <meta name="description" content="Changelog for Augmatic GRE, an AUv3 MIDI drum pattern generator for macOS, iPad, and iPhone.">
+    <link rel="icon" type="image/png" href="img/app-icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="index.html">
+                <img src="img/app-icon.png" alt="Augmatic GRE" width="32" height="32" class="d-inline-block align-text-top me-2" style="border-radius: 6px;">
+                Augmatic GRE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="user-manual/index.html">Manual</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="changelog.html">Changelog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="vibe-coding.html">Vibe Coding</a></li>
+                    <li class="nav-item"><a class="nav-link" href="privacy.html">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Changelog Content -->
+    <div class="manual-page">
+        <div class="container">
+            <div class="manual-header text-center">
+                <h1>Changelog</h1>
+            </div>
+            <div class="manual-content">
+
+                <section>
+                    <h2>Version 1.1</h2>
+                    <p class="text-muted">2026-03-05 &mdash; platofrms: AUv3 and Standalone for iPhone, iPad, Standalone for Mac</p>
+
+                    <h3>Improvements</h3>
+                    <ul>
+                        <li><a href="user-manual/index.html#preset-system">Presets</a> and <a href="user-manual/index.html#settings-tab">MIDI Mappings</a>: No longer store redundant names inside XML files &mdash; filenames are the single source of truth.</li>
+                        <li><a href="user-manual/index.html#preset-system">Presets</a> and <a href="user-manual/index.html#settings-tab">MIDI Mappings</a>: Menu dropdowns now scroll the entire list including subfolders, so all items are reachable even when there are many subfolder categories.</li>
+                        <li><a href="user-manual/index.html#pattern-tab">Pattern Tab</a>: 10x higher-resolution of SWING, SHIFT, and HUMANIZE parameters with reduced knob sensitivity for precise control. <a href="https://forum.loopypro.com/discussion/comment/1458048/#Comment_1458048" target="_blank" rel="noopener" style="color: inherit;">🙏</a></li>
+                        <li><a href="user-manual/index.html#pattern-tab">Pattern Tab</a>: Added kinetic scrolling to STEPS, PULSES, START ON, and NOTE lists for smoother, more precise, and faster navigation.</li>
+                        <li><a href="user-manual/index.html#pattern-tab">Pattern Tab</a> - <a href="user-manual/index.html#blend">BLEND</a> header now shows arrows pointing toward the Grids and Euclidean knobs, indicating which set of controls becomes more influential as you move the BLEND position.</li>
+                        <li><a href="user-manual/index.html#velocity-tab">Velocity Tab</a>: LEVEL knob now goes down to 0, allowing the channel to be fully muted (equivalent of MIDI message 0x9n "Note On velocity=0"). Previously the minimum value was 1.
+                        <li><a href="user-manual/index.html#velocity-tab">Velocity Tab</a>: Moved velocity LEVEL and RANDOM processing after LINEAR DRUMMING in the signal chain to match GUI tab order; no change in behaviour.
+                        <li><a href="user-manual/index.html#settings-tab">Settings Tab</a>: A single MIDI Note selector (e.g., "36-C1", "42-F#1") replacing NOTE and OCTAVE columns — shows both MIDI number and note name for quicker selection and easier MIDI monitoring.</li>
+                        <li><a href="user-manual/index.html#settings-tab">Settings Tab</a>: Added 30+ <a href="user-manual/index.html#settings-tab">MIDI Mappings</a> for apps and hardware instruments. <a href="https://forum.loopypro.com/discussion/comment/1457888/#Comment_1457888" target="_blank" rel="noopener" style="color: inherit;">🙏</a></li>
+                        <li><a href="user-manual/index.html#settings-tab">Settings Tab</a>: <a href="user-manual/index.html#settings-tab">MIDI Mappings</a> menu now shows an asterisk "*" indicator when any MIDI note assignment is changed.</li>
+                        <li><a href="user-manual/index.html#settings-tab">Settings Tab</a>: Tapping a different folder while a submenu is open now switches to it in one tap instead of two. <a href="https://www.youtube.com/@GavinskisTutorials" target="_blank" rel="noopener" style="color: inherit;">🙏</a></li></li>
+                        <li>LED header text doesn't change when switching between tabs and only changes when you tap it.</li>
+                        <li><a href="user-manual/index.html#standalone-mode">Standalone Mode</a>: The app now opens in landscape on iPhone for a better workflow.</li>
+                    </ul>
+
+                    <h3>Bug Fixes</h3>
+                    <ul>
+                        <li><a href="user-manual/index.html#preset-system">Presets</a> and <a href="user-manual/index.html#settings-tab">Settings Tab</a>: Fixed user Preset and MIDI Mapping saving on macOS; also replaced native file dialog with in-app Save As dialog on all platforms.</li>
+                        <li><a href="user-manual/index.html#settings-tab">Settings Tab</a>: Selecting a MIDI OUT device in the Settings tab now correctly picks the chosen device. <a href="https://forum.loopypro.com/discussion/comment/1457825/#Comment_1457825" target="_blank" rel="noopener" style="color: inherit;">🙏</a></li>
+                        <li><a href="user-manual/index.html#xy-pad">XY Pad</a> animation: dots now wrap correctly on Euclidean pattern repeat and are evenly spaced with proper edge padding. <a href="https://www.youtube.com/@soundformore" target="_blank" rel="noopener" style="color: inherit;">🙏</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Version 1.0</h2>
+                    <p class="text-muted">2026-02-23 &mdash; platofrms: AUv3 and Standalone for iPhone, iPad, Standalone for Mac</p>
+
+                    <h3>New</h3>
+                    <ul>
+                        <li>AUv3 MIDI Processor &mdash; works in Logic Pro, GarageBand, AUM, Cubasis, BeatMaker 3, Drambo, Loopy Pro, Audiobus, and more.</li>
+                        <li>6 independent instrument channels: BD, SN, HH + 3 accent channels BD', SN', HH'.</li>
+                        <li>Algorithmic rhythm generator based on Mutable Instruments <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/grids/manual/" target="_blank" rel="noopener" style="color: inherit;">Grids</a> Eurorack module with per-channel density and chaos controls.</li>
+                        <li>Euclidean rhythm generator (Bjorklund algorithm) with per-channel steps, pulses, and start offset.</li>
+                        <li>Per-channel Blend control to mix between <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/grids/manual/" target="_blank" rel="noopener" style="color: inherit;">Grids</a> and Euclidean engines.</li>
+                        <li>XY pad for real-time navigation of the <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/grids/manual/" target="_blank" rel="noopener" style="color: inherit;">Grids</a> pattern topology, with optional colored visual feedback on note triggers.</li>
+                        <li>Per-channel clock ratios from /8 to &times;8 for polyrhythmic patterns.</li>
+                        <li>Per-channel swing (Roger Linn algorithm, &minus;99 to +99).</li>
+                        <li>Per-channel timing shift to push notes ahead of or behind the beat.</li>
+                        <li>Per-channel humanize for subtle micro-timing variation.</li>
+                        <li>Linear Drumming &mdash; 6-level priority system preventing simultaneous instrument hits.</li>
+                        <li>Configurable Linear Drumming grid resolution (64n / 32n / 16n / 8n / 4n).</li>
+                        <li>Pre- and post-Linear Drumming probability, mute, and solo per channel.</li>
+                        <li>Per-channel base velocity and random velocity variation.</li>
+                        <li>Velocity Bender &mdash; shape dynamic accents across a bar at four freely adjustable beat divisions (2n, 4n, 4nt, 8n).</li>
+                        <li>Real-time Velocity Bender waveform display.</li>
+                        <li>Random Velocity Bender generator.</li>
+                        <li>Per-channel Velocity Bender on/off.</li>
+                        <li>Random preset generator based on existing presets.</li>
+                        <li>Configurable MIDI note out length (4n / 8n / 16n / 32n / 64n).</li>
+                        <li>MIDI mapping system &mdash; note assignments persist independently of preset changes.</li>
+                        <li>Clickable LED pads for manual note triggering.</li>
+                        <li>DAW integration &mdash; full parameter automation for all controls.</li>
+                        <li>Preset and MIDI mapping files accessible via the iOS Files app.</li>
+                        <li>Customizable instrument names.</li>
+                        <li>Resizable app and plugin window.</li>
+                        <li>Standalone app: internal clock with BPM control (40&ndash;240).</li>
+                        <li>Standalone app: virtual and physical MIDI output and channel selection.</li>
+                        <li>150+ factory presets, including Euclidean patterns inspired by world rhythms.</li>
+                        <li>Universal Purchase for iPad, iPhone, and Mac.</li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 - Designed and <a href="vibe-coding.html" class="text-inherit">Vibe-coded</a> by Artur Nowak. <a href="../src/" class="text-inherit">Open Source</a></p>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
