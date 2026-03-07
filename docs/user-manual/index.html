@@ -46,7 +46,7 @@
             <div class="manual-header text-center">
                 <h1>Augmatic GRE</h1>
                 <h1>User Manual</h1>
-                <p class="lead text-muted">For software version 1.0 - 2026-02-15 - <a href="../changelog.html">Changelog</a>.</p>
+                <p class="lead text-muted">For software version 1.1 - 2026-03-07 - <a href="../changelog.html">Changelog</a>.</p>
                 <p class="lead text-muted">AUv3 MIDI Drum Pattern Generator for iPad, iPhone and macOS.</p>
             </div>
 
@@ -149,6 +149,7 @@
                         <li><strong>X/Y Pad</strong> (center) &mdash; tap and drag to control Grids Map X / Map Y in two dimensions</li>
                     </ul>
                     <p>The right side shows the active tab's controls, organized as a grid with one row per instrument channel (BD, SN, HH, BD', SN', HH').</p>
+                    <p>The LED-style header above the channel columns displays playful drum onomatopoeia (e.g., &ldquo;BOOM&rdquo;, &ldquo;TCHAK&rdquo;, &ldquo;TSS&rdquo;). Tap an LED pad to trigger that instrument and update the header text. The text persists when switching between tabs.</p>
                 </section>
 
                 <section id="xy-pad">
@@ -240,12 +241,13 @@ E(4,16) Start On=3:  . . X . . . X . . . X . . . X .
 E(3,8)  Start On=1:  X . . X . . X .
 E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p><strong>Auto-clamping:</strong> When you reduce Steps, Pulses and Start On are automatically clamped to valid ranges. For example, reducing Steps from 16 to 8 clamps Pulses from 12 to 8 and Start On from 10 to 8.</p>
+                    <p><strong>Interaction:</strong> Drag vertically on STEPS, PULSES, or START ON to scroll through values. Fast swipes use kinetic scrolling with momentum. Double-tap any value to reset it to its default.</p>
 
                     <h2 id="groove-tools">Groove Tools</h2>
                     <h3>Swing</h3>
                     <p>Per-channel swing timing based on the Roger Linn algorithm.</p>
                     <ul>
-                        <li><strong>Range:</strong> -99 to +99</li>
+                        <li><strong>Range:</strong> &minus;99.0 to +99.0 (0.1 step precision)</li>
                         <li><strong>Default:</strong> 0 (straight timing)</li>
                         <li>Positive values delay the off-beat 16th notes, creating a classic shuffle/swing feel</li>
                         <li>Negative values push the off-beat 16th notes earlier, creating a rushing feel</li>
@@ -255,7 +257,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <h3>Shift</h3>
                     <p>Per-channel time delay that moves notes forward or backward in time.</p>
                     <ul>
-                        <li><strong>Range:</strong> 0&ndash;126 (63 = center/off)</li>
+                        <li><strong>Range:</strong> 0.0&ndash;126.0 (63.0 = center/off, 0.1 step precision)</li>
                         <li><strong>Default:</strong> 63 (no shift)</li>
                         <li>Values below 63: notes play earlier</li>
                         <li>Values above 63: notes play later</li>
@@ -265,7 +267,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <h3>Humanize</h3>
                     <p>Per-channel random timing variation that adds a human feel.</p>
                     <ul>
-                        <li><strong>Range:</strong> 0&ndash;127</li>
+                        <li><strong>Range:</strong> 0.0&ndash;127.0 (0.1 step precision)</li>
                         <li><strong>Default:</strong> 0 (no humanization)</li>
                         <li>Higher values add more random timing offset to each note</li>
                     </ul>
@@ -297,7 +299,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p>The VELOCITY tab controls the output velocity (volume/intensity) of each instrument's MIDI notes.</p>
 
                     <h3>LEVEL</h3>
-                    <p>A per-channel velocity value.</p>
+                    <p>A per-channel velocity value that <strong>replaces</strong> the engine's velocity entirely. Whatever velocity the Grids or Euclidean engine produces is discarded; the LEVEL value is used instead.</p>
                     <ul>
                         <li><strong>Range:</strong> 0&ndash;127 (0 = mute)</li>
                         <li><strong>Default:</strong> 120 for all channels</li>
@@ -411,13 +413,14 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                         <li>Tap "Save" to overwrite the current mapping, or "Save As" to create a new one</li>
                         <li>Enter a name and confirm</li>
                     </ol>
+                    <p>A modification indicator (asterisk) appears on the MIDI Mapping panel when any note assignment has been changed since last save or load.</p>
                     <p><strong>Deleting a Mapping:</strong></p>
                     <ol>
                         <li>Open the dropdown, tap "Delete"</li>
                         <li>Confirm deletion</li>
                     </ol>
                     <p><strong>Organization:</strong> Place mapping XML files into subfolders within the MIDI Mappings directory for categorization. Subfolders appear as folder rows in the dropdown.</p>
-                    <p><strong>Factory Mappings:</strong> Built-in mappings are auto-installed on first launch.</p>
+                    <p><strong>Factory Mappings:</strong> Built-in mappings for 30+ popular apps and hardware instruments are auto-installed on first launch. Includes mappings for Koala Sampler, Logic Pro, Cubasis, TR-808, TR-909, Ruismaker, and many more.</p>
                     <p><strong>Key principle:</strong> Loading a preset does NOT change MIDI notes. Loading a mapping does NOT change pattern settings. The two systems are completely independent.</p>
 
                     <h3>Custom Instrument Names</h3>
@@ -429,6 +432,10 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     </ol>
                     <p><strong>Restore:</strong> Resets the channel to its factory default name (BD, SN, HH, BD', SN', HH').</p>
                     <p>Custom names are stored in MIDI mapping files. Renaming marks the current mapping as modified (shown with an asterisk). Save your mapping after renaming to persist the changes.</p>
+
+                    <h3>MIDI Note Assignment</h3>
+                    <p>Each channel has a <strong>NOTE</strong> column displaying the assigned MIDI note as both number and name (e.g., &ldquo;36-C1&rdquo;, &ldquo;42-F#1&rdquo;). Drag vertically to scroll through all 128 MIDI notes (C-2 through G8). The list supports kinetic scrolling &mdash; a fast swipe coasts through values with momentum. Double-tap to reset to the default note.</p>
+                    <p>Note assignments are stored in MIDI mappings, not presets. Changing the note marks the current mapping as modified (asterisk indicator).</p>
                 </section>
 
                 <!-- Preset System -->
@@ -449,8 +456,9 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                         <li>Configure all parameters as desired</li>
                         <li>Open the Preset panel dropdown</li>
                         <li>Tap "Save" (overwrite) or "Save As" (new preset)</li>
-                        <li>Enter a name and confirm</li>
+                        <li>An in-app dialog appears &mdash; enter a name and tap Save</li>
                     </ol>
+                    <p>Presets are saved directly to the User Presets folder. See <a href="#file-storage">File Storage</a> for the location on each platform.</p>
 
                     <h3>Randomize</h3>
                     <p>The preset system includes a <strong>Randomize</strong> function that generates random values for all parameters. MIDI note assignments are excluded from randomization (they remain unchanged).</p>
@@ -664,6 +672,11 @@ MIDI Output (Note On/Off on Channel 10)</code></pre>
                         <li>Window opens at 1200 &times; 444 with 2.7:1 aspect ratio</li>
                         <li>Resizable (600&ndash;1920 width) with native macOS title bar</li>
                     </ul>
+
+                    <h4>iPhone Standalone</h4>
+                    <ul>
+                        <li>The app opens in landscape orientation for a wider view of all controls</li>
+                    </ul>
                 </section>
 
                 <!-- File Storage -->
@@ -693,10 +706,10 @@ MIDI Output (Note On/Off on Channel 10)</code></pre>
 
                     <h3>macOS</h3>
                     <ul>
-                        <li><strong>Factory Presets:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/Presets/Factory/</code></li>
-                        <li><strong>User Presets:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/Presets/User/</code></li>
-                        <li><strong>Factory MIDI Mappings:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/MIDI&nbsp;Mappings/Factory/</code></li>
-                        <li><strong>User MIDI Mappings:</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/MIDI&nbsp;Mappings/User/</code></li>
+                        <li><strong>Factory Presets:</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/Presets/Factory/</code></li>
+                        <li><strong>User Presets:</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/Presets/User/</code></li>
+                        <li><strong>Factory MIDI Mappings:</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/MIDI&nbsp;Mappings/Factory/</code></li>
+                        <li><strong>User MIDI Mappings:</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/MIDI&nbsp;Mappings/User/</code></li>
                     </ul>
                 </section>
 

@@ -46,7 +46,7 @@
             <div class="manual-header text-center">
                 <h1>Augmatic GRE</h1>
                 <h1>用户手册</h1>
-                <p class="lead text-muted">版本 1.0 - 2026-02-15。</p>
+                <p class="lead text-muted">版本 1.1 - 2026-03-07。</p>
                 <p class="lead text-muted">适用于 iPad、iPhone 和 macOS 的 AUv3 MIDI 鼓节奏生成器。</p>
             </div>
 
@@ -148,6 +148,7 @@
                         <li><strong>X/Y 触控板</strong>（中央） &mdash; 点击并拖动以在二维空间中控制 Grids Map X / Map Y</li>
                     </ul>
                     <p>右侧显示当前选项卡的控件，以网格形式组织，每个乐器通道（BD、SN、HH、BD'、SN'、HH'）占一行。</p>
+                    <p>通道列上方的 LED 样式标题显示有趣的鼓拟声词（例如 &ldquo;BOOM&rdquo;、&ldquo;TCHAK&rdquo;、&ldquo;TSS&rdquo;）。点击 LED 触控板可触发该乐器并更新标题文字。切换选项卡时文字保持不变。</p>
                 </section>
 
                 <section id="xy-pad">
@@ -238,12 +239,13 @@ E(4,16) Start On=3:  . . X . . . X . . . X . . . X .
 E(3,8)  Start On=1:  X . . X . . X .
 E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p><strong>自动限制：</strong>当您减少 Steps 时，Pulses 和 Start On 会自动限制在有效范围内。例如，将 Steps 从 16 减少到 8 会将 Pulses 从 12 限制到 8，Start On 从 10 限制到 8。</p>
+                    <p><strong>交互方式：</strong>在 STEPS、PULSES 或 START ON 上垂直拖动以滚动浏览值。快速滑动支持带惯性的动态滚动。双击任何值可将其重置为默认值。</p>
 
                     <h2 id="groove-tools">律动工具</h2>
                     <h3>Swing</h3>
                     <p>基于 Roger Linn 算法的每通道摇摆时间。</p>
                     <ul>
-                        <li><strong>范围：</strong>-99 到 +99</li>
+                        <li><strong>范围：</strong>&minus;99.0 到 +99.0（精度 0.1）</li>
                         <li><strong>默认：</strong>0（直线时间）</li>
                         <li>正值延迟非重拍十六分音符，创造经典的 shuffle/swing 感觉</li>
                         <li>负值提前非重拍十六分音符，创造急促感</li>
@@ -253,7 +255,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <h3>Shift</h3>
                     <p>每通道的时间延迟，将音符在时间上前移或后移。</p>
                     <ul>
-                        <li><strong>范围：</strong>0&ndash;126（63 = 中心/关闭）</li>
+                        <li><strong>范围：</strong>0.0&ndash;126.0（63.0 = 中心/关闭，精度 0.1）</li>
                         <li><strong>默认：</strong>63（无偏移）</li>
                         <li>低于 63 的值：音符提前播放</li>
                         <li>高于 63 的值：音符延后播放</li>
@@ -263,7 +265,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <h3>Humanize</h3>
                     <p>每通道的随机时间变化，增添人性化的感觉。</p>
                     <ul>
-                        <li><strong>范围：</strong>0&ndash;127</li>
+                        <li><strong>范围：</strong>0.0&ndash;127.0（精度 0.1）</li>
                         <li><strong>默认：</strong>0（无人性化）</li>
                         <li>数值越高，每个音符的随机时间偏移越大</li>
                     </ul>
@@ -297,9 +299,10 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <h3>LEVEL</h3>
                     <p>每通道的力度值，<strong>完全替代</strong>引擎的力度。无论 Grids 或欧几里得引擎产生什么力度都会被丢弃；改用 LEVEL 值。</p>
                     <ul>
-                        <li><strong>范围：</strong>1&ndash;127</li>
+                        <li><strong>范围：</strong>0&ndash;127（0 = 静音）</li>
                         <li><strong>默认：</strong>所有通道为 120</li>
                     </ul>
+                    <p>将 LEVEL 设为 <strong>0</strong> 可静音该通道。按照 MIDI 规范，velocity 0 表示 Note Off &mdash; 不发送 MIDI 音符。这会在脉冲通过 LINEAR DRUMMING 之后静音该通道。</p>
 
                     <h3>Velocity Randomization</h3>
                     <p>在 LEVEL 值周围添加每通道的随机变化。</p>
@@ -346,7 +349,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p>LINEAR 选项卡通过 12 列矩阵控制 MIDI 信号流。它提供概率过滤、静音/独奏控制，以及用于解决同时音符的 6 级优先级系统。</p>
 
                     <h3>信号链</h3>
-                    <pre><code>引擎输出 -> Probability Pre -> Mute Pre -> Solo Pre -> Linear Drumming 矩阵 -> Mute Post -> Probability Post -> Solo Post -> MIDI 输出</code></pre>
+                    <pre><code>引擎输出 -> Probability Pre -> Mute Pre -> Solo Pre -> Linear Drumming 矩阵 -> Mute Post -> Probability Post -> Solo Post -> Velocity -> Velocity Bender -> MIDI 输出</code></pre>
                     <p>左侧的控件（Probability Pre、Mute Pre、Solo Pre）影响优先级处理<strong>之前</strong>的音符。右侧的控件（Probability Post、Solo Post、Mute Post）影响优先级处理<strong>之后</strong>的音符。</p>
 
                     <h3>Probability Pre / Probability Post</h3>
@@ -408,13 +411,14 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                         <li>点击&ldquo;Save&rdquo;覆盖当前映射，或点击&ldquo;Save As&rdquo;创建新映射</li>
                         <li>输入名称并确认</li>
                     </ol>
+                    <p>当任何音符分配自上次保存或加载以来发生更改时，MIDI 映射面板上会出现修改指示器（星号）。</p>
                     <p><strong>删除映射：</strong></p>
                     <ol>
                         <li>打开下拉菜单，点击&ldquo;Delete&rdquo;</li>
                         <li>确认删除</li>
                     </ol>
                     <p><strong>组织：</strong>将映射 XML 文件放入 MIDI Mappings 目录的子文件夹中进行分类。子文件夹在下拉菜单中显示为文件夹行。</p>
-                    <p><strong>出厂映射：</strong>内置映射在首次启动时自动安装。</p>
+                    <p><strong>出厂映射：</strong>内置 30 多种流行应用和硬件乐器的映射，在首次启动时自动安装。包括 Koala Sampler、Logic Pro、Cubasis、TR-808、TR-909、Ruismaker 等众多映射。</p>
                     <p><strong>核心原则：</strong>加载预设不会更改 MIDI 音符。加载映射不会更改节奏设置。两个系统完全独立。</p>
 
                     <h3>自定义乐器名称</h3>
@@ -426,6 +430,10 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     </ol>
                     <p><strong>恢复：</strong>将通道重置为出厂默认名称（BD、SN、HH、BD'、SN'、HH'）。</p>
                     <p>自定义名称存储在 MIDI 映射文件中。重命名会将当前映射标记为已修改（显示星号）。重命名后保存映射以保留更改。</p>
+
+                    <h3>MIDI 音符分配</h3>
+                    <p>每个通道都有一个 <strong>NOTE</strong> 列，以数字和名称的形式显示已分配的 MIDI 音符（例如 &ldquo;36-C1&rdquo;、&ldquo;42-F#1&rdquo;）。垂直拖动可滚动浏览全部 128 个 MIDI 音符（C-2 到 G8）。列表支持带惯性的动态滚动 &mdash; 快速滑动可带动数值持续滚动。双击可重置为默认音符。</p>
+                    <p>音符分配存储在 MIDI 映射中，而非预设中。更改音符会将当前映射标记为已修改（星号指示器）。</p>
                 </section>
 
                 <!-- Preset System -->
@@ -446,8 +454,9 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                         <li>按需配置所有参数</li>
                         <li>打开预设面板下拉菜单</li>
                         <li>点击&ldquo;Save&rdquo;（覆盖）或&ldquo;Save As&rdquo;（新预设）</li>
-                        <li>输入名称并确认</li>
+                        <li>应用内对话框出现 &mdash; 输入名称并点击 Save</li>
                     </ol>
+                    <p>预设直接保存到用户预设文件夹。各平台的存储位置请参见<a href="#file-storage">文件存储</a>。</p>
 
                     <h3>Randomize</h3>
                     <p>预设系统包含 <strong>Randomize</strong> 功能，为所有参数生成随机值。MIDI 音符分配不受随机化影响（保持不变）。</p>
@@ -486,7 +495,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
 节奏引擎（Grids 或欧几里得，由 Blend 选择）
     |
     v
-力度控制器（LEVEL 替代力度，应用 Randomization）
+Chaos（随机力度/触发变化）
     |
     v
 Probability Pre（随机过滤，优先级前）
@@ -508,6 +517,9 @@ Probability Post（随机过滤，优先级后）
     |
     v
 Solo Post（优先级后，包含优先级空隙）
+    |
+    v
+力度控制器（LEVEL 替代力度，应用 Randomization）
     |
     v
 Velocity Bender（LFO 力度调制）
@@ -658,6 +670,11 @@ MIDI 输出（第 10 通道的 Note On/Off）</code></pre>
                         <li>窗口以 1200 &times; 444 打开，宽高比 2.7:1</li>
                         <li>可调整大小（宽度 600&ndash;1920），带原生 macOS 标题栏</li>
                     </ul>
+
+                    <h4>iPhone 独立模式</h4>
+                    <ul>
+                        <li>应用以横屏方向打开，以便更宽阔地查看所有控件</li>
+                    </ul>
                 </section>
 
                 <!-- File Storage -->
@@ -687,10 +704,10 @@ MIDI 输出（第 10 通道的 Note On/Off）</code></pre>
 
                     <h3>macOS</h3>
                     <ul>
-                        <li><strong>出厂预设：</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/Presets/Factory/</code></li>
-                        <li><strong>用户预设：</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/Presets/User/</code></li>
-                        <li><strong>出厂 MIDI 映射：</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/MIDI&nbsp;Mappings/Factory/</code></li>
-                        <li><strong>用户 MIDI 映射：</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/MIDI&nbsp;Mappings/User/</code></li>
+                        <li><strong>出厂预设：</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/Presets/Factory/</code></li>
+                        <li><strong>用户预设：</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/Presets/User/</code></li>
+                        <li><strong>出厂 MIDI 映射：</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/MIDI&nbsp;Mappings/Factory/</code></li>
+                        <li><strong>用户 MIDI 映射：</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/MIDI&nbsp;Mappings/User/</code></li>
                     </ul>
                 </section>
 

@@ -538,6 +538,10 @@ a .compat-badge:hover {
     padding-bottom: 2.5rem;
 }
 
+#reviewCarousel .carousel-inner {
+    min-height: 180px;
+}
+
 .review-card {
     text-align: center;
     padding: 2.5rem 3rem;
@@ -587,6 +591,10 @@ a .compat-badge:hover {
     .review-text {
         font-size: 1.1rem;
     }
+
+    #reviewCarousel .carousel-inner {
+        min-height: 200px;
+    }
 }
 
 /* Wide screenshot between sections */
@@ -598,7 +606,7 @@ a .compat-badge:hover {
 
 /* CTA */
 .cta {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background: radial-gradient(ellipse at 50% 100%, rgba(179, 102, 255, 0.06) 0%, transparent 60%),
                 var(--gre-darker);
 }

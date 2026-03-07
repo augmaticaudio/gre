@@ -46,7 +46,7 @@
             <div class="manual-header text-center">
                 <h1>Augmatic GRE</h1>
                 <h1>Manuel d'utilisation</h1>
-                <p class="lead text-muted">Version 1.0 - 2026-02-15.</p>
+                <p class="lead text-muted">Version 1.1 - 2026-03-07 - <a href="../changelog.html">Changelog</a>.</p>
                 <p class="lead text-muted">Générateur de motifs rythmiques MIDI AUv3 pour iPad, iPhone et macOS.</p>
             </div>
 
@@ -148,6 +148,7 @@
                         <li><strong>Pad X/Y</strong> (centre) &mdash; touchez et glissez pour contrôler Grids Map X / Map Y en deux dimensions</li>
                     </ul>
                     <p>Le côté droit affiche les contrôles de l'onglet actif, organisés en grille avec une ligne par canal d'instrument (BD, SN, HH, BD', SN', HH').</p>
+                    <p>L'en-tête de style LED au-dessus des colonnes de canaux affiche des onomatopées de batterie ludiques (par ex., &laquo;&nbsp;BOOM&nbsp;&raquo;, &laquo;&nbsp;TCHAK&nbsp;&raquo;, &laquo;&nbsp;TSS&nbsp;&raquo;). Touchez un pad LED pour déclencher cet instrument et mettre à jour le texte de l'en-tête. Le texte persiste lorsque vous changez d'onglet.</p>
                 </section>
 
                 <section id="xy-pad">
@@ -238,12 +239,13 @@ E(4,16) Start On=3:  . . X . . . X . . . X . . . X .
 E(3,8)  Start On=1:  X . . X . . X .
 E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p><strong>Auto-clamping :</strong> Lorsque vous réduisez Steps, Pulses et Start On sont automatiquement limités aux plages valides. Par exemple, réduire Steps de 16 à 8 limite Pulses de 12 à 8 et Start On de 10 à 8.</p>
+                    <p><strong>Interaction :</strong> Glissez verticalement sur STEPS, PULSES ou START ON pour faire défiler les valeurs. Les balayages rapides utilisent un défilement cinétique avec inertie. Double-touchez n'importe quelle valeur pour la réinitialiser à sa valeur par défaut.</p>
 
                     <h2 id="groove-tools">Outils de groove</h2>
                     <h3>Swing</h3>
                     <p>Timing de swing par canal basé sur l'algorithme Roger Linn.</p>
                     <ul>
-                        <li><strong>Plage :</strong> -99 à +99</li>
+                        <li><strong>Plage :</strong> &minus;99.0 à +99.0 (précision de 0.1)</li>
                         <li><strong>Défaut :</strong> 0 (timing droit)</li>
                         <li>Les valeurs positives retardent les doubles croches à contretemps, créant une sensation classique de shuffle/swing</li>
                         <li>Les valeurs négatives avancent les doubles croches à contretemps, créant une sensation de précipitation</li>
@@ -253,7 +255,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <h3>Shift</h3>
                     <p>Délai temporel par canal qui avance ou recule les notes dans le temps.</p>
                     <ul>
-                        <li><strong>Plage :</strong> 0&ndash;126 (63 = centre/désactivé)</li>
+                        <li><strong>Plage :</strong> 0.0&ndash;126.0 (63.0 = centre/désactivé, précision de 0.1)</li>
                         <li><strong>Défaut :</strong> 63 (pas de décalage)</li>
                         <li>Valeurs inférieures à 63 : les notes jouent plus tôt</li>
                         <li>Valeurs supérieures à 63 : les notes jouent plus tard</li>
@@ -263,7 +265,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <h3>Humanize</h3>
                     <p>Variation aléatoire du timing par canal qui ajoute une sensation humaine.</p>
                     <ul>
-                        <li><strong>Plage :</strong> 0&ndash;127</li>
+                        <li><strong>Plage :</strong> 0.0&ndash;127.0 (précision de 0.1)</li>
                         <li><strong>Défaut :</strong> 0 (pas d'humanisation)</li>
                         <li>Des valeurs plus élevées ajoutent davantage de décalage temporel aléatoire à chaque note</li>
                     </ul>
@@ -297,9 +299,10 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <h3>LEVEL</h3>
                     <p>Une valeur de vélocité par canal qui <strong>remplace</strong> entièrement la vélocité du moteur. Quelle que soit la vélocité produite par le moteur Grids ou euclidien, elle est ignorée ; la valeur LEVEL est utilisée à la place.</p>
                     <ul>
-                        <li><strong>Plage :</strong> 1&ndash;127</li>
+                        <li><strong>Plage :</strong> 0&ndash;127 (0 = muet)</li>
                         <li><strong>Défaut :</strong> 120 pour tous les canaux</li>
                     </ul>
+                    <p>Régler LEVEL à <strong>0</strong> rend le canal muet. Selon la spécification MIDI, une vélocité de 0 signifie Note Off &mdash; aucune note MIDI n'est envoyée. Cela rend le canal muet après qu'une impulsion a été transmise par LINEAR DRUMMING.</p>
 
                     <h3>Velocity Randomization</h3>
                     <p>Ajoute une variation aléatoire par canal autour de la valeur LEVEL.</p>
@@ -346,7 +349,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     <p>L'onglet LINEAR contrôle le flux du signal MIDI à travers une matrice à 12 colonnes. Il fournit un filtrage par probabilité, des contrôles mute/solo et un système de priorité à 6 niveaux pour résoudre les notes simultanées.</p>
 
                     <h3>Chaîne de signal</h3>
-                    <pre><code>Sortie du moteur -> Probability Pre -> Mute Pre -> Solo Pre -> Matrice Linear Drumming -> Mute Post -> Probability Post -> Solo Post -> Sortie MIDI</code></pre>
+                    <pre><code>Sortie du moteur -> Probability Pre -> Mute Pre -> Solo Pre -> Matrice Linear Drumming -> Mute Post -> Probability Post -> Solo Post -> Velocity -> Velocity Bender -> Sortie MIDI</code></pre>
                     <p>Les contrôles à gauche (Probability Pre, Mute Pre, Solo Pre) affectent les notes <strong>avant</strong> le traitement de priorité. Les contrôles à droite (Probability Post, Solo Post, Mute Post) affectent les notes <strong>après</strong> le traitement de priorité.</p>
 
                     <h3>Probability Pre / Probability Post</h3>
@@ -408,13 +411,14 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                         <li>Touchez &laquo;&nbsp;Save&nbsp;&raquo; pour écraser le mapping actuel, ou &laquo;&nbsp;Save As&nbsp;&raquo; pour en créer un nouveau</li>
                         <li>Entrez un nom et confirmez</li>
                     </ol>
+                    <p>Un indicateur de modification (astérisque) apparaît sur le panneau MIDI Mapping lorsqu'une assignation de note a été modifiée depuis la dernière sauvegarde ou le dernier chargement.</p>
                     <p><strong>Supprimer un mapping :</strong></p>
                     <ol>
                         <li>Ouvrez le menu déroulant, touchez &laquo;&nbsp;Delete&nbsp;&raquo;</li>
                         <li>Confirmez la suppression</li>
                     </ol>
                     <p><strong>Organisation :</strong> Placez les fichiers XML de mapping dans des sous-dossiers du répertoire MIDI Mappings pour les catégoriser. Les sous-dossiers apparaissent comme des lignes de dossier dans le menu déroulant.</p>
-                    <p><strong>Mappings d'usine :</strong> Les mappings intégrés sont automatiquement installés au premier lancement.</p>
+                    <p><strong>Mappings d'usine :</strong> Les mappings intégrés pour plus de 30 applications et instruments matériels populaires sont automatiquement installés au premier lancement. Comprend des mappings pour Koala Sampler, Logic Pro, Cubasis, TR-808, TR-909, Ruismaker, et bien d'autres.</p>
                     <p><strong>Principe clé :</strong> Charger un preset ne modifie PAS les notes MIDI. Charger un mapping ne modifie PAS les paramètres de motifs. Les deux systèmes sont complètement indépendants.</p>
 
                     <h3>Noms d'instruments personnalisés</h3>
@@ -426,6 +430,10 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                     </ol>
                     <p><strong>Restaurer :</strong> Réinitialise le canal à son nom d'usine par défaut (BD, SN, HH, BD', SN', HH').</p>
                     <p>Les noms personnalisés sont stockés dans les fichiers de mapping MIDI. Renommer marque le mapping actuel comme modifié (indiqué par un astérisque). Sauvegardez votre mapping après le renommage pour conserver les modifications.</p>
+
+                    <h3>Assignation des notes MIDI</h3>
+                    <p>Chaque canal dispose d'une colonne <strong>NOTE</strong> affichant la note MIDI assignée sous forme de numéro et de nom (par ex., &laquo;&nbsp;36-C1&nbsp;&raquo;, &laquo;&nbsp;42-F#1&nbsp;&raquo;). Glissez verticalement pour faire défiler les 128 notes MIDI (C-2 à G8). La liste prend en charge le défilement cinétique &mdash; un balayage rapide parcourt les valeurs avec inertie. Double-touchez pour réinitialiser à la note par défaut.</p>
+                    <p>Les assignations de notes sont stockées dans les mappings MIDI, pas dans les presets. Modifier la note marque le mapping actuel comme modifié (indicateur astérisque).</p>
                 </section>
 
                 <!-- Preset System -->
@@ -446,8 +454,9 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
                         <li>Configurez tous les paramètres comme souhaité</li>
                         <li>Ouvrez le menu déroulant du panneau Preset</li>
                         <li>Touchez &laquo;&nbsp;Save&nbsp;&raquo; (écraser) ou &laquo;&nbsp;Save As&nbsp;&raquo; (nouveau preset)</li>
-                        <li>Entrez un nom et confirmez</li>
+                        <li>Une boîte de dialogue apparaît dans l'application &mdash; entrez un nom et touchez Save</li>
                     </ol>
+                    <p>Les presets sont sauvegardés directement dans le dossier User Presets. Voir <a href="#file-storage">Stockage des fichiers</a> pour l'emplacement sur chaque plateforme.</p>
 
                     <h3>Randomize</h3>
                     <p>Le système de presets inclut une fonction <strong>Randomize</strong> qui génère des valeurs aléatoires pour tous les paramètres. Les assignations de notes MIDI sont exclues de la randomisation (elles restent inchangées).</p>
@@ -486,7 +495,7 @@ E(1,16) Start On=1:  X . . . . . . . . . . . . . . .</code></pre>
 Moteur de motifs (Grids ou Euclidien, sélectionné par Blend)
     |
     v
-Contrôleur de vélocité (LEVEL remplace la vélocité, applique Randomization)
+Chaos (variation aléatoire de vélocité/déclenchement)
     |
     v
 Probability Pre (filtrage aléatoire, pré-priorité)
@@ -508,6 +517,9 @@ Probability Post (filtrage aléatoire, post-priorité)
     |
     v
 Solo Post (post-priorité, avec trous de priorité)
+    |
+    v
+Contrôleur de vélocité (LEVEL remplace la vélocité, applique Randomization)
     |
     v
 Velocity Bender (modulation de vélocité par LFO)
@@ -658,6 +670,11 @@ Sortie MIDI (Note On/Off sur le Canal 10)</code></pre>
                         <li>La fenêtre s'ouvre à 1200 &times; 444 avec un ratio de 2.7:1</li>
                         <li>Redimensionnable (largeur 600&ndash;1920) avec barre de titre macOS native</li>
                     </ul>
+
+                    <h4>iPhone autonome</h4>
+                    <ul>
+                        <li>L'application s'ouvre en orientation paysage pour une vue plus large de tous les contrôles</li>
+                    </ul>
                 </section>
 
                 <!-- File Storage -->
@@ -687,10 +704,10 @@ Sortie MIDI (Note On/Off sur le Canal 10)</code></pre>
 
                     <h3>macOS</h3>
                     <ul>
-                        <li><strong>Presets d'usine :</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/Presets/Factory/</code></li>
-                        <li><strong>Presets utilisateur :</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/Presets/User/</code></li>
-                        <li><strong>Mappings MIDI d'usine :</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/MIDI&nbsp;Mappings/Factory/</code></li>
-                        <li><strong>Mappings MIDI utilisateur :</strong> <code>~/Library/Application&nbsp;Support/Audio/Presets/Artur&nbsp;Nowak/AugmaticGRE/MIDI&nbsp;Mappings/User/</code></li>
+                        <li><strong>Presets d'usine :</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/Presets/Factory/</code></li>
+                        <li><strong>Presets utilisateur :</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/Presets/User/</code></li>
+                        <li><strong>Mappings MIDI d'usine :</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/MIDI&nbsp;Mappings/Factory/</code></li>
+                        <li><strong>Mappings MIDI utilisateur :</strong> <code>~/Library/Application&nbsp;Support/AugmaticGRE/MIDI&nbsp;Mappings/User/</code></li>
                     </ul>
                 </section>
 
