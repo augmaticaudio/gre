@@ -1,4 +1,4 @@
-# Augmatic GRE — Source Code
+# Augmatic GRE v1.0 — Source Code
 
 This folder contains the JUCE/C++ source code for Augmatic GRE, exported from the private development repository.
 
