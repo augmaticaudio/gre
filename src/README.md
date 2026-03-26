@@ -26,7 +26,7 @@ This folder contains the JUCE/C++ source code for Augmatic GRE, exported from th
 
 ## Redacted lines
 
-Some lines have been replaced with `// REDACTED`, `# REDACTED`, or `<!-- REDACTED -->`. These are lines that contained personal identifiers (author name, bundle IDs, App Group IDs, local filesystem paths). The redaction affects 16 lines across 8 files. All plugin logic, DSP code, and UI code is unredacted and complete.
+Some lines have been replaced with `// REDACTED`, `# REDACTED`, or `<!-- REDACTED -->`. These are lines that contained personal identifiers (author name, bundle IDs, App Group IDs, local filesystem paths). The redaction affects 14 lines across 8 files. All plugin logic, DSP code, and UI code is unredacted and complete.
 
 ## License
 
