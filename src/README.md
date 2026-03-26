@@ -31,3 +31,6 @@ Some lines have been replaced with `// REDACTED`, `# REDACTED`, or `<!-- REDACTE
 ## License
 
 GPL-3.0
+
+# VIBE CODING WARNING
+This project is 100% vibe‑coded. Reuse with caution.
