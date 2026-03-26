@@ -34,4 +34,4 @@ Code: GPL3.0.
 This project is 100% vibe‑coded. Reuse with caution.
 
 # Contact
-augmaticaudio@gmail.com
+https://augmaticaudio.com/contact.html
