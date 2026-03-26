@@ -1,12 +1,10 @@
-# WORK IN PROGRESS
-
-This repository is under construction — things may not work yet.
-
 # Augmatic GRE
 
-Algorithmic drum pattern generator. AUv3 MIDI plugin and app for iPad, iPhone, and an app for Mac (no plugin).
+Algorithmic drum pattern generator.
+- AUv3 plugin and App for iPad, iPhone and Mac (v1.0)
+- VST3 plugin for Windows PC and Mac. (from v1.2)
 
-**Website**: [augmaticaudio.github.io/gre](https://augmaticaudio.github.io/gre/)
+**Website**: [augmaticaudio.com/gre](https://augmaticaudio.com/gre/)
 
 ## Features
 
@@ -36,4 +34,4 @@ Code: GPL3.0.
 This project is 100% vibe‑coded. Reuse with caution.
 
 # Contact
-augmatic.gre@gmail.com
+augmaticaudio@gmail.com
