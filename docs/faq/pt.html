@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Augmatic GRE</title>
+    <meta name="description" content="Perguntas frequentes sobre o Augmatic GRE, um gerador de padr&otilde;es de bateria MIDI em AUv3 e VST3 para iPad, iPhone, macOS e Windows.">
+    <link rel="icon" type="image/png" href="../img/app-icon.png">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .manual-content details { margin-bottom: 0.25rem; }
+        .manual-content summary {
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.6rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .manual-content summary::-webkit-details-marker { display: none; }
+        .manual-content summary .icon-right,
+        .manual-content summary .icon-down { width: 18px; height: 18px; flex-shrink: 0; }
+        .manual-content summary .icon-down { display: none; }
+        .manual-content details[open] > summary .icon-right { display: none; }
+        .manual-content details[open] > summary .icon-down { display: inline; }
+        .manual-content details .answer { padding: 0.25rem 0 0.75rem 1.75rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="../index.html">
+                <img src="../img/app-icon.png" alt="Augmatic Audio" width="32" height="32" class="d-inline-block align-text-top me-2" style="border-radius: 6px;">
+                Augmatic Audio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../user-manual/index.html">Manual</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../faq/index.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../changelog.html">Changelog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../vibe-coding.html">Vibe Coding</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../privacy.html">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../license.html">License</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Content -->
+    <div class="manual-page">
+        <div class="container">
+            <!-- Language Selector -->
+            <div class="text-center pt-3 pb-1">
+                <a href="index.html">English</a> &#183; <a href="de.html">Deutsch</a> &#183; <a href="sp.html">Espa&ntilde;ol</a> &#183; <a href="fr.html">Fran&ccedil;ais</a> &#183; <a href="pl.html">Polski</a> &#183; <strong>Portugu&ecirc;s</strong> &#183; <a href="cn.html">&#20013;&#25991;</a>
+            </div>
+
+            <div class="manual-header text-center">
+                <h1>Perguntas Frequentes</h1>
+                <p class="lead text-muted">sobre o Augmatic GRE</p>
+            </div>
+
+            <div class="manual-content">
+
+                <details id="blue-banner">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>O que &eacute; o banner azul / pedido de permiss&atilde;o ap&oacute;s a instala&ccedil;&atilde;o?</summary>
+                    <div class="answer">
+                        <p>&Eacute; um pedido de permiss&atilde;o do iOS, que aparece apenas uma vez, para que o plugin AUv3 possa aceder &agrave; pasta de Documentos da aplica&ccedil;&atilde;o aut&oacute;noma. Toque no bot&atilde;o azul <strong>"Enable Files App Access"</strong>, localize a pasta do Augmatic GRE em "No Meu iPad" e prima Open. Sem esta permiss&atilde;o, os presets guardados no AUv3 n&atilde;o ficar&atilde;o vis&iacute;veis na aplica&ccedil;&atilde;o Files app. Consulte <a href="../user-manual/index.html#file-storage">File Storage</a> para mais detalhes.</p>
+                    </div>
+                </details>
+
+                <details id="getting-started">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Qual &eacute; a melhor forma de come&ccedil;ar a explorar o Augmatic GRE?</summary>
+                    <div class="answer">
+                        <p>Fa&ccedil;a altera&ccedil;&otilde;es pequenas e incrementais e ou&ccedil;a com aten&ccedil;&atilde;o. A aplica&ccedil;&atilde;o foi concebida para criar padr&otilde;es evolutivos &mdash; mexer em muitos bot&otilde;es ao mesmo tempo pode soar ca&oacute;tico, enquanto ajustes subtis dos par&acirc;metros produzem resultados mais musicais.</p>
+                    </div>
+                </details>
+
+                <details id="silent">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Porque &eacute; que alguns canais parecem silenciosos mesmo com valores altos?</summary>
+                    <div class="answer">
+                        <p>Quase sempre se deve a uma intera&ccedil;&atilde;o com o <a href="../user-manual/index.html#blend">BLEND</a>. Por exemplo, se o BLEND estiver totalmente &agrave; esquerda (apenas <a href="../user-manual/index.html#grids-engine">Grids</a>) e o <a href="../user-manual/index.html#grids-engine">DENSITY</a> do Grids para um determinado canal tamb&eacute;m estiver totalmente &agrave; esquerda, esse canal n&atilde;o produz nada &mdash; mesmo que os PULSES do <a href="../user-manual/index.html#euclidean-engine">Euclidean</a> estejam elevados, porque as notas Euclidean n&atilde;o s&atilde;o utilizadas nessa posi&ccedil;&atilde;o de BLEND.</p>
+                        <p>Ambos os motores tamb&eacute;m podem ser silenciados pela matriz de <a href="../user-manual/index.html#linear-tab">Linear Drumming</a> &mdash; se um canal tiver baixa prioridade (ponto &agrave; direita) e outros canais tocarem com frequ&ecirc;ncia.</p>
+                    </div>
+                </details>
+
+                <details id="no-sound">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>N&atilde;o consigo obter som nenhum. O que estou a fazer mal?</summary>
+                    <div class="answer">
+                        <p>O Augmatic GRE &eacute; um plugin exclusivamente MIDI &mdash; n&atilde;o produz &aacute;udio. &Eacute; necess&aacute;rio:</p>
+                        <ol>
+                            <li>Certificar-se de que as notas MIDI emitidas correspondem &agrave;s notas que o seu sampler de bateria ou sintetizador espera. Pode selecionar as notas MIDI de sa&iacute;da no separador <a href="../user-manual/index.html#settings-tab">Settings</a>.</li>
+                            <li>Utilizar os <a href="../user-manual/index.html#settings-tab">mapeamentos MIDI</a> incorporados ou criar um mapeamento personalizado para o seu instrumento e depois guard&aacute;-lo para n&atilde;o ter de repetir a configura&ccedil;&atilde;o.</li>
+                            <li>Encaminhar a sa&iacute;da MIDI de cada canal para o som adequado no seu motor de bateria.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details id="accents">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Para que servem os canais BD', SN' e HH'? Como torn&aacute;-los mais &uacute;teis?</summary>
+                    <div class="answer">
+                        <p>BD', SN' e HH' s&atilde;o canais de acentua&ccedil;&atilde;o que correspondem aos canais principais BD, SN e HH. No design original do <a href="../user-manual/index.html#grids-engine">Grids</a>, os canais de acentua&ccedil;&atilde;o representam elementos de backbeat mais fracos e s&atilde;o intencionalmente acionados com menor frequ&ecirc;ncia. Para reproduzir esse comportamento, defina o <a href="../user-manual/index.html#grids-engine">DENSITY</a> da acentua&ccedil;&atilde;o para cerca de 25%.</p>
+                        <p>No Augmatic GRE, pode utilizar os canais de acentua&ccedil;&atilde;o como preferir. Aumente o DENSITY acima de 25% para territ&oacute;rio mais agressivo, ou use-os para criar frases de acentua&ccedil;&atilde;o mais longas ao longo de v&aacute;rios compassos, definindo o <a href="../user-manual/index.html#groove-tools">CLOCK</a> para /2 ou /4.</p>
+                        <p>Quando atribui maior prioridade aos canais de acentua&ccedil;&atilde;o mais lentos na matriz de <a href="../user-manual/index.html#linear-tab">Linear Drumming</a>, o GRE produz padr&otilde;es muito mais interessantes e evolutivos, em vez dos t&iacute;picos loops repetitivos de 1 compasso.</p>
+                    </div>
+                </details>
+
+                <details id="force-hits">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Como posso for&ccedil;ar muitos toques num canal para teste?</summary>
+                    <div class="answer">
+                        <p>Rode o <a href="../user-manual/index.html#blend">BLEND</a> totalmente para a direita (<a href="../user-manual/index.html#euclidean-engine">Euclidean</a>) e defina os par&acirc;metros Euclidean para <strong>16 STEPS, 16 PULSES, START ON 1</strong>. Isto ir&aacute; produzir semicolcheias r&aacute;pidas.</p>
+                    </div>
+                </details>
+
+                <details id="blend">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Como funciona o controlo BLEND?</summary>
+                    <div class="answer">
+                        <p>O BLEND faz um crossfade de probabilidade entre os dois motores:</p>
+                        <ul>
+                            <li><strong>Totalmente &agrave; esquerda</strong> &rarr; apenas o motor <a href="../user-manual/index.html#grids-engine">Grids</a> (<a href="../user-manual/index.html#xy-pad">XY Map</a>) gera notas.</li>
+                            <li><strong>Totalmente &agrave; direita</strong> &rarr; apenas o motor <a href="../user-manual/index.html#euclidean-engine">Euclidean</a> gera notas.</li>
+                            <li><strong>Qualquer posi&ccedil;&atilde;o interm&eacute;dia</strong> &rarr; uma mistura de probabilidades (p. ex., 12 horas = 50/50 de probabilidade de a nota vir de qualquer um dos motores).</li>
+                        </ul>
+                        <p>Se o BLEND estiver totalmente &agrave; esquerda, as defini&ccedil;&otilde;es de PULSES do Euclidean n&atilde;o t&ecirc;m efeito &mdash; e vice-versa.</p>
+                    </div>
+                </details>
+
+                <details id="master-sliders">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>O que s&atilde;o os Master Sliders e quando devo us&aacute;-los?</summary>
+                    <div class="answer">
+                        <p>Os <a href="../user-manual/index.html#master-sliders">Master Sliders</a> oferecem controlo com um &uacute;nico gesto sobre grupos de bot&otilde;es por canal (Density, Chaos, Blend, Prob Pre, Prob Post, Level). Alterne o painel usando o bot&atilde;o junto ao XY Map.</p>
+                        <p>Cada slider tem um modo <strong>Hard/Soft</strong>: Hard sobrescreve todos os canais para o mesmo valor; Soft escala cada canal relativamente &agrave; sua defini&ccedil;&atilde;o individual. Use-os para varrimentos em performance ao vivo, ajustes r&aacute;pidos de mix ou automa&ccedil;&atilde;o de m&uacute;ltiplos canais em simult&acirc;neo.</p>
+                    </div>
+                </details>
+
+                <details id="beat-monitor">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>O que s&atilde;o os pontos intermitentes junto aos bot&otilde;es e listas?</summary>
+                    <div class="answer">
+                        <p>S&atilde;o os pontos do <strong>Beat Monitor</strong> &mdash; fornecem feedback visual do fluxo do sinal MIDI. Cada ponto pisca na cor do instrumento quando um batimento passa por essa fase de processamento, ou em cinzento quando &eacute; bloqueado. Aparecem em todos os separadores: Pattern, Linear e Velocity.</p>
+                        <p>O Beat Monitor pode ser ativado/desativado em <a href="../user-manual/index.html#settings-tab">Settings</a>. Consulte <a href="../user-manual/index.html#interface-overview">Interface Overview</a> no manual para uma explica&ccedil;&atilde;o completa de cada ponto.</p>
+                    </div>
+                </details>
+
+                <details id="fills">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>&Eacute; poss&iacute;vel criar fills?</summary>
+                    <div class="answer">
+                        <p>Sim. O <strong><a href="../user-manual/index.html#grids-engine">Master Chaos slider</a></strong> (localizado sob o <a href="../user-manual/index.html#xy-pad">XY pad</a>) foi concebido para isso. Aumente-o para introduzir varia&ccedil;&atilde;o e fills, depois baixe-o novamente. Como &eacute; um par&acirc;metro AUv3 exposto, pode ser <a href="../user-manual/index.html#daw-automation">automatizado</a> a partir de um DAW.</p>
+                        <p>Outras dicas para fills:</p>
+                        <ul>
+                            <li>Aumentar o Master Chaos slider produz fills coerentes com o padr&atilde;o base (pois derivam dele).</li>
+                            <li>Use o painel <a href="../user-manual/index.html#master-sliders">Master Sliders</a> para varrer Density ou Blend juntamente com Chaos para fills mais dram&aacute;ticos.</li>
+                            <li>Um LFO super lento no Master Chaos slider pode criar uma estrutura evolutiva ao n&iacute;vel da m&uacute;sica inteira.</li>
+                            <li>Grave a sa&iacute;da MIDI enquanto move manualmente o slider para capturar fills em pontos espec&iacute;ficos.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details id="linear-drumming">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>O que &eacute; Linear Drumming?</summary>
+                    <div class="answer">
+                        <p>Linear Drumming limita quantos toques podem ocorrer no mesmo momento, tornando o groove mais humano e intencional. Em vez de BD, SN, HH e os respetivos canais de acentua&ccedil;&atilde;o tocarem todos em simult&acirc;neo, escolhe-se <strong>qual canal ganha o step</strong> movendo o seu ponto para a esquerda na <a href="../user-manual/index.html#linear-tab">Matrix</a>. Quanto mais &agrave; direita estiver o ponto, menor a sua prioridade &mdash; instrumentos de maior prioridade ir&atilde;o silenci&aacute;-lo e este s&oacute; tocar&aacute; quando nenhum outro canal estiver a tocar nesse momento.</p>
+                    </div>
+                </details>
+
+                <details id="choke">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>O Linear Drumming pode ser usado como choke de hi-hat?</summary>
+                    <div class="answer">
+                        <p>N&atilde;o exatamente. Linear Drumming <strong>n&atilde;o</strong> &eacute; uma funcionalidade de choke cl&aacute;ssica. Quando um instrumento &eacute; definido com maior prioridade, silencia <strong>todos</strong> os instrumentos com menor prioridade &mdash; n&atilde;o apenas um instrumento emparelhado espec&iacute;fico.</p>
+                        <p>Para um comportamento de choke adequado (p. ex., hi-hat aberto cortado pelo hi-hat fechado), utilize a funcionalidade de choke do seu sampler de bateria ou sintetizador.</p>
+                    </div>
+                </details>
+
+                <details id="swing">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>O SWING parece n&atilde;o fazer nada. Porqu&ecirc;?</summary>
+                    <div class="answer">
+                        <p>O <a href="../user-manual/index.html#groove-tools">Swing</a> cria uma sensa&ccedil;&atilde;o de shuffle/groove atrasando cada segunda <strong>semicolcheia</strong>. Se o seu padr&atilde;o n&atilde;o contiver semicolcheias, n&atilde;o ouvir&aacute; o efeito. Para test&aacute;-lo, rode o <a href="../user-manual/index.html#blend">BLEND</a> totalmente para a direita (<a href="../user-manual/index.html#euclidean-engine">Euclidean</a>) e defina <strong>16 STEPS, 16 PULSES, START ON 1</strong> para obter um padr&atilde;o r&aacute;pido de semicolcheias que reage imediatamente &agrave;s altera&ccedil;&otilde;es de SWING. Aumentar o <a href="../user-manual/index.html#grids-engine">CHAOS</a> tamb&eacute;m pode for&ccedil;ar o motor Grids a adicionar algumas semicolcheias.</p>
+                    </div>
+                </details>
+
+                <details id="shift">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Como funciona o SHIFT negativo (avan&ccedil;o temporal)?</summary>
+                    <div class="answer">
+                        <p>O <a href="../user-manual/index.html#groove-tools">Shift</a> &eacute; um atraso de p&oacute;s-processamento aplicado ap&oacute;s a gera&ccedil;&atilde;o do padr&atilde;o. Tanto o avan&ccedil;o como o recuo utilizam uma tabela de consulta PPQ para atrasar notas em quantidades precisas. O avan&ccedil;o temporal (valores abaixo do centro) usa valores de atraso maiores para que as notas caiam imediatamente antes do pr&oacute;ximo ciclo, criando o efeito de tocar &agrave; frente do tempo. Isto permite criar toques estilo <strong>flam</strong>: uma nota de gra&ccedil;a que cai imediatamente antes do toque principal, dando ao som mais peso e car&aacute;cter.</p>
+                        <p><strong>Ressalva:</strong> Ajustar o SHIFT em tempo real ou atrav&eacute;s de automa&ccedil;&atilde;o &mdash; especialmente ao cruzar o ponto central &mdash; pode produzir resultados inesperados. O par&acirc;metro continua dispon&iacute;vel para automa&ccedil;&atilde;o, uma vez que movimentos subtis funcionam bem.</p>
+                    </div>
+                </details>
+
+                <details id="rename">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Como renomeio um Preset ou MIDI Mapping?</summary>
+                    <div class="answer">
+                        <p>Abra o <a href="../user-manual/index.html#preset-system">Preset Browser</a> ou o <a href="../user-manual/index.html#note-tab">MIDI Mapping Browser</a>, selecione o ficheiro e toque no bot&atilde;o <strong>Rename</strong> no painel de a&ccedil;&otilde;es. Introduza o novo nome e confirme.</p>
+                        <p>Em alternativa, no iOS pode renomear o ficheiro XML diretamente na Files app em <strong>No Meu iPad</strong> / <strong>No Meu iPhone</strong> &rarr; <strong>Augmatic GRE</strong>.</p>
+                    </div>
+                </details>
+
+                <details id="snap-point">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Existe forma de guardar um ponto de refer&ecirc;ncia e voltar a ele ap&oacute;s ajustes?</summary>
+                    <div class="answer">
+                        <p>N&atilde;o diretamente. Se quiser partir de um padr&atilde;o e voltar a ele mais tarde ap&oacute;s alterar alguns par&acirc;metros, guarde-o como <a href="../user-manual/index.html#preset-system">preset</a> e recupere-o quando necess&aacute;rio. Vers&otilde;es futuras do Augmatic GRE tornar&atilde;o isto mais f&aacute;cil para performance ao vivo.</p>
+                    </div>
+                </details>
+
+                <details id="double-tap">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Os bot&otilde;es suportam duplo toque para repor?</summary>
+                    <div class="answer">
+                        <p>Sim, todos os bot&otilde;es suportam duplo toque para repor o valor de f&aacute;brica. N&atilde;o &eacute; poss&iacute;vel definir uma posi&ccedil;&atilde;o predefinida personalizada.</p>
+                    </div>
+                </details>
+
+                <details id="init-preset">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>O preset Init n&atilde;o est&aacute; em branco, pois n&atilde;o?</summary>
+                    <div class="answer">
+                        <p>Correto &mdash; o preset Init n&atilde;o est&aacute; vazio. &Eacute; um ponto de partida simples <strong>four-on-the-floor</strong> em ambos os motores <a href="../user-manual/index.html#grids-engine">Grids</a> e <a href="../user-manual/index.html#euclidean-engine">Euclidean</a>. A partir da&iacute;, tudo o que fizer s&oacute; tornar&aacute; o padr&atilde;o mais interessante.</p>
+                    </div>
+                </details>
+
+                <details id="automation">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Todos os par&acirc;metros podem ser automatizados?</summary>
+                    <div class="answer">
+                        <p>Sim. Todos os par&acirc;metros s&atilde;o expostos como par&acirc;metros AUv3 e VST3 e podem ser <a href="../user-manual/index.html#daw-automation">automatizados</a> a partir de qualquer DAW compat&iacute;vel.</p>
+                    </div>
+                </details>
+
+                <details id="automation-ideas">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Alguma ideia criativa de automa&ccedil;&atilde;o?</summary>
+                    <div class="answer">
+                        <ul>
+                            <li><strong>LFO super lento no <a href="../user-manual/index.html#grids-engine">Master Chaos</a></strong> &rarr; cria automaticamente uma estrutura evolutiva ao n&iacute;vel da m&uacute;sica inteira.</li>
+                            <li><strong>Automatizar a posi&ccedil;&atilde;o do <a href="../user-manual/index.html#xy-pad">XY pad</a></strong> &rarr; transformar entre diferentes topologias de padr&otilde;es de bateria ao longo do tempo.</li>
+                            <li><strong>Automatizar <a href="../user-manual/index.html#grids-engine">density/chaos</a> individuais</strong> &rarr; construir e desconstruir padr&otilde;es para transi&ccedil;&otilde;es entre estrofe e refr&atilde;o.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details id="randomize-notes">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Posso aleatorizar as notas MIDI de cada uma das 6 pistas usando um sequenciador MIDI ou fonte externa?</summary>
+                    <div class="answer">
+                        <p>Sim! Todos os par&acirc;metros do Augmatic GRE podem ser automatizados, incluindo as notas MIDI OUT de cada pista (BD, SN, HH, etc.). Isto significa que tamb&eacute;m podem ser alvo de aleatoriza&ccedil;&atilde;o.</p>
+                        <p>Para configurar no AUM:</p>
+                        <ol>
+                            <li>Toque no &iacute;cone de hamburger &agrave; esquerda do Augmatic GRE e selecione o &iacute;cone de &ldquo;faders&rdquo; (AU Parameters) no menu &agrave; direita.</li>
+                            <li>Ver&aacute; uma lista completa de par&acirc;metros &mdash; os par&acirc;metros de nota MIDI (BD MIDI Note, SN MIDI Note, HH MIDI Note, etc.) est&atilde;o perto do fim, ordenados separador a separador seguindo o layout da interface da esquerda para a direita.</li>
+                            <li>Para cada par&acirc;metro de nota, pode atribuir um n&uacute;mero CC. Se tiver um plugin a enviar valores Sample &amp; Hold via CC, esse sinal aleatorizar&aacute; a nota &mdash; que &eacute; exatamente o que pretende.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details id="device-limit">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Em quantos dispositivos posso instalar o Augmatic GRE?</summary>
+                    <div class="answer">
+                        <p><strong>Vers&atilde;o App Store (AUv3):</strong> Instale em qualquer n&uacute;mero de dispositivos com sessa&atilde;o iniciada com o mesmo Apple ID &mdash; sem compra adicional.</p>
+                        <p><strong>Vers&atilde;o desktop (VST3):</strong> Se for um utilizador individual, pode instalar e ativar o Software em qualquer n&uacute;mero de computadores que possua e controle pessoalmente, desde que apenas o utilizador o use. Licen&ccedil;as empresariais e organizacionais s&atilde;o por dispositivo &mdash; &eacute; necess&aacute;ria uma licen&ccedil;a separada para cada computador.</p>
+                        <p>Para todos os detalhes, consulte o <a href="../license.html">License Agreement</a>.</p>
+                    </div>
+                </details>
+
+
+                <details id="testflight">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Est&aacute; dispon&iacute;vel uma vers&atilde;o beta no TestFlight?</summary>
+                    <div class="answer">
+                        <p>Sim &mdash; envie um email atrav&eacute;s da sec&ccedil;&atilde;o <a href="../contact.html">Contact</a> para participar nos testes das pr&oacute;ximas vers&otilde;es.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 - Designed and <a href="../vibe-coding.html" class="text-inherit">Vibe-coded</a> by Artur Nowak. <a href="https://github.com/augmaticaudio/gre" class="text-inherit">Open Source</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

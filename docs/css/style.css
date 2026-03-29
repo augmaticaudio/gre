@@ -93,11 +93,34 @@ a:hover {
     margin-right: auto;
 }
 
+#screenshotCarousel .carousel-inner {
+    height: 560px;
+}
+
+#screenshotCarousel .carousel-item {
+    height: 100%;
+}
+
 #screenshotCarousel .carousel-item img {
     max-width: 100%;
+    max-height: 520px;
+    width: auto;
     height: auto;
     border-radius: 12px;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    object-fit: contain;
+    position: absolute;
+    top: calc(50% - 16px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#screenshotCarousel .carousel-caption-custom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 8px;
 }
 
 #screenshotCarousel .carousel-indicators {
@@ -528,14 +551,14 @@ a .compat-badge:hover {
 
 /* User Reviews */
 .reviews {
-    padding: 2.5rem 0;
+    padding: 2.5rem 0 0;
     background-color: var(--gre-darker);
 }
 
 #reviewCarousel {
     max-width: 700px;
     margin: 0 auto;
-    padding-bottom: 2.5rem;
+    padding-bottom: 1.25rem;
 }
 
 #reviewCarousel .carousel-inner {
@@ -544,7 +567,7 @@ a .compat-badge:hover {
 
 .review-card {
     text-align: center;
-    padding: 2.5rem 3rem;
+    padding: 1.25rem 3rem;
 }
 
 .review-text {
@@ -557,7 +580,7 @@ a .compat-badge:hover {
 }
 
 .review-author {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--gre-accent);
     margin-bottom: 0;

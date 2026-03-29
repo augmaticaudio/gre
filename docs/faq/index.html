@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Augmatic GRE</title>
+    <meta name="description" content="Frequently asked questions about Augmatic GRE, an AUv3 and VST3 MIDI drum pattern generator for iPad, iPhone, macOS, and Windows.">
+    <link rel="icon" type="image/png" href="../img/app-icon.png">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .manual-content details { margin-bottom: 0.25rem; }
+        .manual-content summary {
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.6rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .manual-content summary::-webkit-details-marker { display: none; }
+        .manual-content summary .icon-right,
+        .manual-content summary .icon-down { width: 18px; height: 18px; flex-shrink: 0; }
+        .manual-content summary .icon-down { display: none; }
+        .manual-content details[open] > summary .icon-right { display: none; }
+        .manual-content details[open] > summary .icon-down { display: inline; }
+        .manual-content details .answer { padding: 0.25rem 0 0.75rem 1.75rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="../index.html">
+                <img src="../img/app-icon.png" alt="Augmatic Audio" width="32" height="32" class="d-inline-block align-text-top me-2" style="border-radius: 6px;">
+                Augmatic Audio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../user-manual/index.html">Manual</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../faq/index.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../changelog.html">Changelog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../vibe-coding.html">Vibe Coding</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../privacy.html">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../license.html">License</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Content -->
+    <div class="manual-page">
+        <div class="container">
+            <!-- Language Selector -->
+            <div class="text-center pt-3 pb-1">
+                <strong>English</strong> &#183; <a href="de.html">Deutsch</a> &#183; <a href="sp.html">Espa&ntilde;ol</a> &#183; <a href="fr.html">Fran&ccedil;ais</a> &#183; <a href="pl.html">Polski</a> &#183; <a href="pt.html">Portugu&ecirc;s</a> &#183; <a href="cn.html">&#20013;&#25991;</a>
+            </div>
+
+            <div class="manual-header text-center">
+                <h1>Frequently Asked Questions</h1>
+                <p class="lead text-muted">about Augmatic GRE</p>
+            </div>
+
+            <div class="manual-content">
+
+                <details id="blue-banner">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>What is the blue banner / permission prompt after installation?</summary>
+                    <div class="answer">
+                        <p>This is a one-time iOS permission request for the AUv3 plugin to access the standalone app's Documents folder. Tap the blue <strong>"Enable Files App Access"</strong> button, locate the folder for Augmatic GRE on "My iPad," and press Open. Without this, presets saved in the AUv3 won't be visible in the Files app. See <a href="../user-manual/index.html#file-storage">File Storage</a> for details.</p>
+                    </div>
+                </details>
+
+                <details id="getting-started">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>What is the best approach to start playing with Augmatic GRE?</summary>
+                    <div class="answer">
+                        <p>Make small, incremental changes and listen carefully. The app is designed to create evolving patterns &mdash; moving many knobs at once can sound chaotic, while subtle parameter adjustments produce more musical results.</p>
+                    </div>
+                </details>
+
+                <details id="silent">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Why do some channels appear silent even with high settings?</summary>
+                    <div class="answer">
+                        <p>This is almost always a <a href="../user-manual/index.html#blend">BLEND</a> interaction. For example, if BLEND is fully left (<a href="../user-manual/index.html#grids-engine">Grids</a> only) and the Grids <a href="../user-manual/index.html#grids-engine">DENSITY</a> for a given channel is also fully left, that channel outputs nothing &mdash; even if <a href="../user-manual/index.html#euclidean-engine">Euclidean</a> PULSES are set high, because Euclidean notes aren't being used at that BLEND position.</p>
+                        <p>Both engines can also be muted by the <a href="../user-manual/index.html#linear-tab">Linear Drumming</a> matrix &mdash; if a channel has low priority (dot on the right) and other channels play frequently.</p>
+                    </div>
+                </details>
+
+                <details id="no-sound">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>I can't get any sound out of it. What am I doing wrong?</summary>
+                    <div class="answer">
+                        <p>Augmatic GRE is a MIDI-only plugin &mdash; it does not produce audio. You need to:</p>
+                        <ol>
+                            <li>Make sure the MIDI notes it outputs match the notes your drum sampler or synthesizer expects. You can select output MIDI notes on the <a href="../user-manual/index.html#settings-tab">Settings tab</a>.</li>
+                            <li>Use the built-in <a href="../user-manual/index.html#settings-tab">MIDI mappings</a> or create a custom mapping for your instrument, then save it so you don't have to repeat the setup.</li>
+                            <li>Route each channel's MIDI output to the appropriate sound in your drum engine.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details id="accents">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>What are channels BD', SN' and HH' for? How to make them more useful?</summary>
+                    <div class="answer">
+                        <p>BD', SN', and HH' are accent channels that correspond to the main BD, SN, and HH. In the original <a href="../user-manual/index.html#grids-engine">Grids</a> design, accent channels represent weaker backbeat elements and are intentionally triggered less often. To reproduce that behaviour, set accent <a href="../user-manual/index.html#grids-engine">DENSITY</a> to around 25%.</p>
+                        <p>In Augmatic GRE, you're free to use accent channels however you like. Push them into more aggressive territory with DENSITY above 25%, or use them to create longer accent phrases across several bars by setting <a href="../user-manual/index.html#groove-tools">CLOCK</a> to /2 or /4.</p>
+                        <p>When you give slower accent channels higher priority in the <a href="../user-manual/index.html#linear-tab">Linear Drumming</a> matrix, GRE produces far more interesting, evolving patterns instead of the typical repetitive 1-bar loops.</p>
+                    </div>
+                </details>
+
+                <details id="force-hits">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>How can I force lots of hits on a channel for testing?</summary>
+                    <div class="answer">
+                        <p>Turn <a href="../user-manual/index.html#blend">BLEND</a> to full right (<a href="../user-manual/index.html#euclidean-engine">Euclidean</a>) and set the Euclidean params to <strong>16 steps, 16 pulses, Start On 1</strong>. This will output fast 16th notes.</p>
+                    </div>
+                </details>
+
+                <details id="blend">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>How does the BLEND control work?</summary>
+                    <div class="answer">
+                        <p>BLEND crossfades the probability between the two engines:</p>
+                        <ul>
+                            <li><strong>Full left</strong> &rarr; only the <a href="../user-manual/index.html#grids-engine">Grids engine</a> (<a href="../user-manual/index.html#xy-pad">XY Map</a>) generates notes.</li>
+                            <li><strong>Full right</strong> &rarr; only the <a href="../user-manual/index.html#euclidean-engine">Euclidean engine</a> generates notes.</li>
+                            <li><strong>Any position in between</strong> &rarr; a probability mix (e.g. 12 o'clock = 50/50 chance of a note coming from either engine).</li>
+                        </ul>
+                        <p>If BLEND is fully left, Euclidean PULSES settings have no effect &mdash; and vice versa.</p>
+                    </div>
+                </details>
+
+                <details id="master-sliders">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>What are Master Sliders and when should I use them?</summary>
+                    <div class="answer">
+                        <p><a href="../user-manual/index.html#master-sliders">Master Sliders</a> provide one-gesture control over groups of per-channel knobs (Density, Chaos, Blend, Prob Pre, Prob Post, Level). Toggle the panel using the button next to the XY Map.</p>
+                        <p>Each slider has a <strong>Hard/Soft</strong> mode: Hard overrides all channels to the same value; Soft scales each channel relative to its individual setting. Use them for live performance sweeps, quick mix adjustments, or automating multiple channels at once.</p>
+                    </div>
+                </details>
+
+                <details id="beat-monitor">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>What are the flashing dots next to knobs and lists?</summary>
+                    <div class="answer">
+                        <p>Those are <strong>Beat Monitor</strong> dots &mdash; they provide visual feedback of the MIDI signal flow. Each dot flashes in the instrument's color when a beat passes through that processing stage, or gray when blocked. They appear on every tab: Pattern, Linear, and Velocity.</p>
+                        <p>Beat Monitor can be toggled on/off in <a href="../user-manual/index.html#settings-tab">Settings</a>. See <a href="../user-manual/index.html#interface-overview">Interface Overview</a> in the manual for a full explanation of each dot.</p>
+                    </div>
+                </details>
+
+                <details id="fills">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Is it possible to make fills?</summary>
+                    <div class="answer">
+                        <p>Yes. The <strong><a href="../user-manual/index.html#grids-engine">Master Chaos slider</a></strong> (located under the <a href="../user-manual/index.html#xy-pad">XY pad</a>) is designed for this. Bump it up to introduce variation and fills, then bring it back down. Since it's an exposed AUv3 parameter, it can be <a href="../user-manual/index.html#daw-automation">automated</a> from a DAW.</p>
+                        <p>Other tips for fills:</p>
+                        <ul>
+                            <li>Bumping the Master Chaos slider produces fills that are coherent with the base pattern (since they derive from it).</li>
+                            <li>Use the <a href="../user-manual/index.html#master-sliders">Master Sliders</a> panel to sweep Density or Blend alongside Chaos for more dramatic fills.</li>
+                            <li>A super-slow LFO on the Master Chaos slider can create evolving song-level structure.</li>
+                            <li>Record MIDI output while manually moving the slider to capture fills at specific points.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details id="linear-drumming">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>What is Linear Drumming?</summary>
+                    <div class="answer">
+                        <p>Linear drumming limits how many hits can occur at the same moment, making the groove feel more human and intentional. Instead of BD, SN, HH and their accent channels all firing together, you choose <strong>which channel wins the step</strong> by moving its dot to the left in the <a href="../user-manual/index.html#linear-tab">Matrix</a>. The farther to the right a dot sits, the lower its priority &mdash; higher-priority instruments will mute it and it will only play when no other channel is playing at that moment.</p>
+                    </div>
+                </details>
+
+                <details id="choke">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Can Linear Drumming be used as a hi-hat choke?</summary>
+                    <div class="answer">
+                        <p>Not exactly. Linear Drumming is <strong>not</strong> a classic choke feature. When an instrument is set to a higher priority, it chokes <strong>all</strong> instruments with lower priority &mdash; not just a specific paired instrument.</p>
+                        <p>For proper choke behaviour (e.g. open hi-hat cut off by closed hi-hat), use the choke feature in your drum sampler or synth.</p>
+                    </div>
+                </details>
+
+                <details id="swing">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>SWING doesn't seem to do anything. Why?</summary>
+                    <div class="answer">
+                        <p><a href="../user-manual/index.html#groove-tools">Swing</a> creates a shuffle/groove feel by delaying every other <strong>16th note</strong>. If your pattern doesn't contain any 16th notes, you won't hear the effect. To test it, turn <a href="../user-manual/index.html#blend">BLEND</a> to full right (<a href="../user-manual/index.html#euclidean-engine">Euclidean</a>) and set <strong>16 steps, 16 pulses, Start On 1</strong> to get a fast 16th-note pattern that reacts to SWING changes immediately. Increasing <a href="../user-manual/index.html#grids-engine">CHAOS</a> can also force the Grids engine to add some 16th notes.</p>
+                    </div>
+                </details>
+
+                <details id="shift">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>How does negative SHIFT (forward shift) actually work?</summary>
+                    <div class="answer">
+                        <p><a href="../user-manual/index.html#groove-tools">Shift</a> is a post-processing delay applied after pattern generation. Both forward and backward shift use a PPQ lookup table to delay notes by precise amounts. Forward shift (values below center) uses larger delay values so that notes land just before the next cycle, creating the effect of playing ahead of the beat. This makes it possible to create <strong>flam-style</strong> hits: a grace note that lands just before the main stroke, giving the sound more weight and character.</p>
+                        <p><strong>Caveat:</strong> Adjusting SHIFT in real time or through automation &mdash; especially when crossing the centre point &mdash; can produce unexpected results. The parameter is still available for automation, since subtle movements work well.</p>
+                    </div>
+                </details>
+
+                <details id="rename">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>How do I rename a Preset or MIDI Mapping?</summary>
+                    <div class="answer">
+                        <p>Open the <a href="../user-manual/index.html#preset-system">Preset Browser</a> or <a href="../user-manual/index.html#note-tab">MIDI Mapping Browser</a>, select the file, and tap the <strong>Rename</strong> button in the action panel. Enter the new name and confirm.</p>
+                        <p>Alternatively, on iOS you can rename the XML file directly in the Files app under <strong>On My iPad</strong> / <strong>On My iPhone</strong> &rarr; <strong>Augmatic GRE</strong>.</p>
+                    </div>
+                </details>
+
+                <details id="snap-point">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Is there a way to save a snap point and return to it after tweaking?</summary>
+                    <div class="answer">
+                        <p>Not directly. If you want to start from a pattern and return to it later after changing some parameters, save it as a <a href="../user-manual/index.html#preset-system">preset</a> and recall it when needed. Future versions of Augmatic GRE will make this easier for live performance.</p>
+                    </div>
+                </details>
+
+                <details id="double-tap">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Do knobs support double-tap to reset?</summary>
+                    <div class="answer">
+                        <p>Yes, all knobs support double-tap to reset to their factory default. You cannot set a custom default position.</p>
+                    </div>
+                </details>
+
+                <details id="init-preset">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>The Init preset isn't blank, is it?</summary>
+                    <div class="answer">
+                        <p>Correct &mdash; the Init preset isn't empty. It's a simple <strong>four-on-the-floor</strong> starting point in both the <a href="../user-manual/index.html#grids-engine">Grids</a> and <a href="../user-manual/index.html#euclidean-engine">Euclidean</a> engines. From there, everything you do will only make the pattern more interesting.</p>
+                    </div>
+                </details>
+
+                <details id="automation">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Can all parameters be automated?</summary>
+                    <div class="answer">
+                        <p>Yes. All parameters are exposed as AUv3 and VST3 parameters and can be <a href="../user-manual/index.html#daw-automation">automated</a> from any compatible host DAW.</p>
+                    </div>
+                </details>
+
+                <details id="automation-ideas">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Any creative automation ideas?</summary>
+                    <div class="answer">
+                        <ul>
+                            <li><strong>Super-slow LFO on <a href="../user-manual/index.html#grids-engine">Master Chaos</a></strong> &rarr; creates evolving song-level structure automatically.</li>
+                            <li><strong>Automate <a href="../user-manual/index.html#xy-pad">XY pad</a> position</strong> &rarr; morph between different drum pattern topologies over time.</li>
+                            <li><strong>Automate individual <a href="../user-manual/index.html#grids-engine">density/chaos</a></strong> &rarr; build and break down patterns for verse/chorus transitions.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details id="randomize-notes">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Can I randomize the MIDI notes for each of the 6 lanes using a MIDI sequencer or external source?</summary>
+                    <div class="answer">
+                        <p>Yes! All parameters in Augmatic GRE can be automated, including the MIDI OUT notes for each lane (BD, SN, HH, etc.). This means they can also be targets for randomization.</p>
+                        <p>To set it up in AUM:</p>
+                        <ol>
+                            <li>Tap the hamburger icon to the left of Augmatic GRE, then select the &ldquo;faders&rdquo; icon (AU Parameters) from the menu on the right.</li>
+                            <li>You&rsquo;ll see a full list of parameters &mdash; the MIDI Note parameters (BD MIDI Note, SN MIDI Note, HH MIDI Note, etc.) are near the bottom, ordered tab by tab following the GUI layout from left to right.</li>
+                            <li>For each note parameter, you can assign a CC number. If you have a plugin sending Sample &amp; Hold values via CC, that signal will randomize the note &mdash; which is exactly what you&rsquo;re after.</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details id="device-limit">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>How many devices can I install Augmatic GRE on?</summary>
+                    <div class="answer">
+                        <p><strong>App Store version (AUv3):</strong> Install on any number of devices signed in with the same Apple ID &mdash; no extra purchase required.</p>
+                        <p><strong>Desktop version (VST3):</strong> If you are an individual, you may install and activate the Software on any number of computers you personally own and control, as long as only you use it. Business and organizational licences are per-device &mdash; a separate licence is required for each computer.</p>
+                        <p>For full details, see the <a href="../license.html">License Agreement</a>.</p>
+                    </div>
+                </details>
+
+
+                <details id="testflight">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Is a TestFlight beta available?</summary>
+                    <div class="answer">
+                        <p>Yes &mdash; send an email via the <a href="../contact.html">Contact</a> section to join the tests of upcoming versions.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 - Designed and <a href="../vibe-coding.html" class="text-inherit">Vibe-coded</a> by Artur Nowak. <a href="https://github.com/augmaticaudio/gre" class="text-inherit">Open Source</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

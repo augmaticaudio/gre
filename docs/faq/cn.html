@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Augmatic GRE</title>
+    <meta name="description" content="Augmatic GRE 常见问题解答。Augmatic GRE 是一款适用于 iPad、iPhone、macOS 和 Windows 的 AUv3 及 VST3 MIDI 鼓节奏生成器。">
+    <link rel="icon" type="image/png" href="../img/app-icon.png">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .manual-content details { margin-bottom: 0.25rem; }
+        .manual-content summary {
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.6rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .manual-content summary::-webkit-details-marker { display: none; }
+        .manual-content summary .icon-right,
+        .manual-content summary .icon-down { width: 18px; height: 18px; flex-shrink: 0; }
+        .manual-content summary .icon-down { display: none; }
+        .manual-content details[open] > summary .icon-right { display: none; }
+        .manual-content details[open] > summary .icon-down { display: inline; }
+        .manual-content details .answer { padding: 0.25rem 0 0.75rem 1.75rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="../index.html">
+                <img src="../img/app-icon.png" alt="Augmatic Audio" width="32" height="32" class="d-inline-block align-text-top me-2" style="border-radius: 6px;">
+                Augmatic Audio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../user-manual/index.html">Manual</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../faq/index.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../changelog.html">Changelog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../vibe-coding.html">Vibe Coding</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../privacy.html">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../license.html">License</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Content -->
+    <div class="manual-page">
+        <div class="container">
+            <!-- Language Selector -->
+            <div class="text-center pt-3 pb-1">
+                <a href="index.html">English</a> &#183; <a href="de.html">Deutsch</a> &#183; <a href="sp.html">Espa&ntilde;ol</a> &#183; <a href="fr.html">Fran&ccedil;ais</a> &#183; <a href="pl.html">Polski</a> &#183; <a href="pt.html">Portugu&ecirc;s</a> &#183; <strong>&#20013;&#25991;</strong>
+            </div>
+
+            <div class="manual-header text-center">
+                <h1>常见问题</h1>
+                <p class="lead text-muted">关于 Augmatic GRE</p>
+            </div>
+
+            <div class="manual-content">
+
+                <details id="blue-banner">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>安装后出现的蓝色横幅/权限提示是什么？</summary>
+                    <div class="answer">
+                        <p>这是 iOS 的一次性权限请求，允许 AUv3 插件访问独立应用的"文稿"文件夹。点击蓝色的 <strong>"Enable Files App Access"</strong> 按钮，在"我的 iPad"上找到 Augmatic GRE 的文件夹，然后点击"打开"。如果不授权，在 AUv3 中保存的预设将无法在 Files app 中看到。详情请参阅<a href="../user-manual/index.html#file-storage">文件存储</a>。</p>
+                    </div>
+                </details>
+
+                <details id="getting-started">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>开始使用 Augmatic GRE 的最佳方式是什么？</summary>
+                    <div class="answer">
+                        <p>进行小幅、渐进式的调整，并仔细聆听效果。这款应用旨在创造不断演变的节奏 &mdash; 同时拨动太多旋钮可能听起来混乱，而细微的参数调整往往能产生更具音乐性的效果。</p>
+                    </div>
+                </details>
+
+                <details id="silent">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>为什么有些通道即使设置很高也没有声音？</summary>
+                    <div class="answer">
+                        <p>这几乎总是 <a href="../user-manual/index.html#blend">BLEND</a> 交互导致的。例如，如果 BLEND 完全靠左（仅 <a href="../user-manual/index.html#grids-engine">Grids</a>），而某个通道的 Grids <a href="../user-manual/index.html#grids-engine">DENSITY</a> 也完全靠左，那么该通道不会输出任何内容 &mdash; 即使 <a href="../user-manual/index.html#euclidean-engine">Euclidean</a> 的 PULSES 设置很高也是如此，因为在该 BLEND 位置不使用 Euclidean 音符。</p>
+                        <p>两个引擎也可能被 <a href="../user-manual/index.html#linear-tab">Linear Drumming</a> 矩阵静音 &mdash; 如果某个通道优先级较低（圆点靠右），而其他通道频繁演奏。</p>
+                    </div>
+                </details>
+
+                <details id="no-sound">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>我完全听不到声音，哪里出了问题？</summary>
+                    <div class="answer">
+                        <p>Augmatic GRE 是一个纯 MIDI 插件 &mdash; 它不产生音频。你需要：</p>
+                        <ol>
+                            <li>确保它输出的 MIDI 音符与你的鼓采样器或合成器所期望的音符一致。你可以在<a href="../user-manual/index.html#settings-tab">设置页</a>中选择输出 MIDI 音符。</li>
+                            <li>使用内置的 <a href="../user-manual/index.html#settings-tab">MIDI 映射</a>，或为你的乐器创建自定义映射，然后保存以便无需重复设置。</li>
+                            <li>将每个通道的 MIDI 输出路由到鼓引擎中对应的音色。</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details id="accents">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>BD'、SN' 和 HH' 通道是做什么用的？如何让它们更有用？</summary>
+                    <div class="answer">
+                        <p>BD'、SN' 和 HH' 是与主通道 BD、SN 和 HH 对应的重音通道。在原始 <a href="../user-manual/index.html#grids-engine">Grids</a> 设计中，重音通道代表较弱的反拍元素，触发频率较低。要复现这种行为，将重音 <a href="../user-manual/index.html#grids-engine">DENSITY</a> 设置在 25% 左右。</p>
+                        <p>在 Augmatic GRE 中，你可以自由使用重音通道。将 DENSITY 提高到 25% 以上可以使其更加激进，或者通过将 <a href="../user-manual/index.html#groove-tools">CLOCK</a> 设为 /2 或 /4 来创建跨越多个小节的重音乐句。</p>
+                        <p>当你在 <a href="../user-manual/index.html#linear-tab">Linear Drumming</a> 矩阵中给予较慢的重音通道更高的优先级时，GRE 会产生更加有趣、不断演变的节奏，而不是典型的 1 小节重复循环。</p>
+                    </div>
+                </details>
+
+                <details id="force-hits">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>如何让某个通道产生大量触发以进行测试？</summary>
+                    <div class="answer">
+                        <p>将 <a href="../user-manual/index.html#blend">BLEND</a> 旋钮转到最右（<a href="../user-manual/index.html#euclidean-engine">Euclidean</a>），然后将 Euclidean 参数设为 <strong>16 STEPS、16 PULSES、START ON 1</strong>。这将输出快速的十六分音符。</p>
+                    </div>
+                </details>
+
+                <details id="blend">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>BLEND 控制是如何工作的？</summary>
+                    <div class="answer">
+                        <p>BLEND 在两个引擎之间交叉渐变概率：</p>
+                        <ul>
+                            <li><strong>完全靠左</strong> &rarr; 仅由 <a href="../user-manual/index.html#grids-engine">Grids 引擎</a>（<a href="../user-manual/index.html#xy-pad">XY Map</a>）生成音符。</li>
+                            <li><strong>完全靠右</strong> &rarr; 仅由 <a href="../user-manual/index.html#euclidean-engine">Euclidean 引擎</a>生成音符。</li>
+                            <li><strong>任何中间位置</strong> &rarr; 概率混合（例如 12 点钟位置 = 音符有 50/50 的概率来自任一引擎）。</li>
+                        </ul>
+                        <p>如果 BLEND 完全靠左，Euclidean 的 PULSES 设置不会产生效果 &mdash; 反之亦然。</p>
+                    </div>
+                </details>
+
+                <details id="master-sliders">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>什么是 Master Sliders？什么时候应该使用它们？</summary>
+                    <div class="answer">
+                        <p><a href="../user-manual/index.html#master-sliders">Master Sliders</a> 提供对各通道旋钮组（Density、Chaos、Blend、Prob Pre、Prob Post、Level）的单手势控制。使用 XY Map 旁边的按钮切换面板。</p>
+                        <p>每个滑块有 <strong>Hard/Soft</strong> 模式：Hard 将所有通道覆盖为相同值；Soft 根据每个通道的个别设置进行比例缩放。可用于现场表演的参数扫描、快速混音调整，或同时自动化多个通道。</p>
+                    </div>
+                </details>
+
+                <details id="beat-monitor">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>旋钮和列表旁边闪烁的圆点是什么？</summary>
+                    <div class="answer">
+                        <p>那些是 <strong>Beat Monitor</strong> 指示点 &mdash; 它们提供 MIDI 信号流的视觉反馈。每个指示点在节拍通过该处理阶段时以乐器的颜色闪烁，被阻止时则显示灰色。它们出现在每个标签页上：Pattern、Linear 和 Velocity。</p>
+                        <p>Beat Monitor 可以在<a href="../user-manual/index.html#settings-tab">设置</a>中开启/关闭。详细说明请参阅手册中的<a href="../user-manual/index.html#interface-overview">界面概览</a>。</p>
+                    </div>
+                </details>
+
+                <details id="fills">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>可以制作过门（fill）吗？</summary>
+                    <div class="answer">
+                        <p>可以。<strong><a href="../user-manual/index.html#grids-engine">Master Chaos 滑块</a></strong>（位于 <a href="../user-manual/index.html#xy-pad">XY pad</a> 下方）就是为此设计的。调高它来引入变化和过门，然后再调回来。由于它是一个公开的 AUv3 参数，可以从 DAW 进行<a href="../user-manual/index.html#daw-automation">自动化</a>控制。</p>
+                        <p>制作过门的其他技巧：</p>
+                        <ul>
+                            <li>调高 Master Chaos 滑块产生的过门与基础节奏保持一致（因为它们由基础节奏衍生而来）。</li>
+                            <li>使用 <a href="../user-manual/index.html#master-sliders">Master Sliders</a> 面板同时扫描 Density 或 Blend 以及 Chaos，制作更戏剧性的过门。</li>
+                            <li>在 Master Chaos 滑块上使用超慢速 LFO 可以创造不断演变的歌曲级结构。</li>
+                            <li>手动移动滑块时录制 MIDI 输出，可以在特定位置捕获过门。</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details id="linear-drumming">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>什么是 Linear Drumming？</summary>
+                    <div class="answer">
+                        <p>Linear Drumming 限制同一时刻可以触发的打击数量，使律动感觉更加人性化和有意图。它不会让 BD、SN、HH 及其重音通道同时触发，而是通过在<a href="../user-manual/index.html#linear-tab">矩阵</a>中将圆点向左移动来选择<strong>哪个通道赢得该步</strong>。圆点越靠右，优先级越低 &mdash; 优先级更高的乐器会将其静音，该通道只有在当前时刻没有其他通道演奏时才会发声。</p>
+                    </div>
+                </details>
+
+                <details id="choke">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Linear Drumming 可以用作踩镲切断（choke）吗？</summary>
+                    <div class="answer">
+                        <p>不完全可以。Linear Drumming <strong>不是</strong>传统的切断功能。当一个乐器被设为较高优先级时，它会切断<strong>所有</strong>优先级较低的乐器 &mdash; 而不仅仅是某个特定的配对乐器。</p>
+                        <p>要实现正确的切断行为（例如闭合踩镲切断开放踩镲），请使用鼓采样器或合成器中的切断功能。</p>
+                    </div>
+                </details>
+
+                <details id="swing">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>SWING 似乎没有效果，为什么？</summary>
+                    <div class="answer">
+                        <p><a href="../user-manual/index.html#groove-tools">SWING</a> 通过延迟每隔一个<strong>十六分音符</strong>来创建摇摆/律动感。如果你的节奏中没有十六分音符，你就听不到效果。要测试它，将 <a href="../user-manual/index.html#blend">BLEND</a> 转到最右（<a href="../user-manual/index.html#euclidean-engine">Euclidean</a>），并设置 <strong>16 STEPS、16 PULSES、START ON 1</strong> 来获得一个快速的十六分音符节奏，它会立即响应 SWING 的变化。提高 <a href="../user-manual/index.html#grids-engine">CHAOS</a> 也可以迫使 Grids 引擎添加一些十六分音符。</p>
+                    </div>
+                </details>
+
+                <details id="shift">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>负向 SHIFT（前移）实际上是如何工作的？</summary>
+                    <div class="answer">
+                        <p><a href="../user-manual/index.html#groove-tools">SHIFT</a> 是在节奏生成后应用的后处理延迟。前移和后移都使用 PPQ 查找表来精确延迟音符。前移（低于中心值）使用较大的延迟值，使音符落在下一个周期之前，从而产生提前于拍子演奏的效果。这使得创建<strong>装饰音风格</strong>的打击成为可能：一个在主要击打之前落下的装饰音，赋予声音更多力量和特色。</p>
+                        <p><strong>注意：</strong>实时调整 SHIFT 或通过自动化控制 &mdash; 尤其是跨越中心点时 &mdash; 可能产生意外结果。该参数仍然可用于自动化，因为细微的变化效果很好。</p>
+                    </div>
+                </details>
+
+                <details id="rename">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>如何重命名预设或 MIDI 映射？</summary>
+                    <div class="answer">
+                        <p>打开 <a href="../user-manual/index.html#preset-system">Preset Browser</a> 或 <a href="../user-manual/index.html#note-tab">MIDI Mapping Browser</a>，选择文件，然后点击操作面板中的 <strong>Rename</strong> 按钮。输入新名称并确认。</p>
+                        <p>此外，在 iOS 上你也可以在 Files app 的 <strong>On My iPad</strong> / <strong>On My iPhone</strong> &rarr; <strong>Augmatic GRE</strong> 中直接重命名 XML 文件。</p>
+                    </div>
+                </details>
+
+                <details id="snap-point">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>有没有办法保存一个快照点，调整后再恢复？</summary>
+                    <div class="answer">
+                        <p>目前不能直接实现。如果你想从某个节奏出发，更改一些参数后再回到原来的状态，可以先将其保存为<a href="../user-manual/index.html#preset-system">预设</a>，需要时再调用。Augmatic GRE 的未来版本将使现场表演中的此类操作更加方便。</p>
+                    </div>
+                </details>
+
+                <details id="double-tap">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>旋钮支持双击重置吗？</summary>
+                    <div class="answer">
+                        <p>支持，所有旋钮都支持双击重置到出厂默认值。你无法设置自定义的默认位置。</p>
+                    </div>
+                </details>
+
+                <details id="init-preset">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Init 预设不是空白的，对吧？</summary>
+                    <div class="answer">
+                        <p>没错 &mdash; Init 预设不是空的。它在 <a href="../user-manual/index.html#grids-engine">Grids</a> 和 <a href="../user-manual/index.html#euclidean-engine">Euclidean</a> 两个引擎中都是一个简单的<strong>四拍底鼓（four-on-the-floor）</strong>起始点。从这里开始，你所做的任何改变都只会让节奏更加有趣。</p>
+                    </div>
+                </details>
+
+                <details id="automation">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>所有参数都可以被自动化控制吗？</summary>
+                    <div class="answer">
+                        <p>是的。所有参数都作为 AUv3 和 VST3 参数公开，可以从任何兼容的宿主 DAW 进行<a href="../user-manual/index.html#daw-automation">自动化</a>控制。</p>
+                    </div>
+                </details>
+
+                <details id="automation-ideas">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>有什么创意自动化方案？</summary>
+                    <div class="answer">
+                        <ul>
+                            <li><strong>在 <a href="../user-manual/index.html#grids-engine">Master Chaos</a> 上使用超慢速 LFO</strong> &rarr; 自动创造不断演变的歌曲级结构。</li>
+                            <li><strong>自动化 <a href="../user-manual/index.html#xy-pad">XY pad</a> 位置</strong> &rarr; 随时间在不同的鼓节奏拓扑之间平滑过渡。</li>
+                            <li><strong>自动化各通道的 <a href="../user-manual/index.html#grids-engine">DENSITY/CHAOS</a></strong> &rarr; 为主歌/副歌过渡构建和分解节奏。</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details id="randomize-notes">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>能否使用 MIDI 音序器或外部源来随机化 6 个通道的 MIDI 音符？</summary>
+                    <div class="answer">
+                        <p>可以！Augmatic GRE 中的所有参数都可以被自动化，包括每个通道（BD、SN、HH 等）的 MIDI OUT 音符。这意味着它们也可以作为随机化的目标。</p>
+                        <p>在 AUM 中设置方法：</p>
+                        <ol>
+                            <li>点击 Augmatic GRE 左侧的汉堡菜单图标，然后从右侧菜单中选择"推子"图标（AU Parameters）。</li>
+                            <li>你会看到完整的参数列表 &mdash; MIDI Note 参数（BD MIDI Note、SN MIDI Note、HH MIDI Note 等）位于底部附近，按标签页顺序排列，遵循 GUI 从左到右的布局。</li>
+                            <li>对于每个音符参数，你可以分配一个 CC 编号。如果你有一个通过 CC 发送 Sample &amp; Hold 值的插件，该信号将随机化音符 &mdash; 这正是你想要的效果。</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details id="device-limit">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>Augmatic GRE 可以安装在多少台设备上？</summary>
+                    <div class="answer">
+                        <p><strong>App Store 版本（AUv3）：</strong>可以安装在使用同一 Apple ID 登录的任意数量设备上 &mdash; 无需额外购买。</p>
+                        <p><strong>桌面版本（VST3）：</strong>如果你是个人用户，可以在你个人拥有和控制的任意数量的电脑上安装和激活软件，前提是只有你本人使用。企业和组织许可证按设备计算 &mdash; 每台电脑需要单独的许可证。</p>
+                        <p>完整详情请参阅<a href="../license.html">许可协议</a>。</p>
+                    </div>
+                </details>
+
+
+                <details id="testflight">
+                    <summary><svg class="icon-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="icon-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>有 TestFlight 测试版吗？</summary>
+                    <div class="answer">
+                        <p>有 &mdash; 通过<a href="../contact.html">联系方式</a>发送邮件即可加入即将推出版本的测试。</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 - Designed and <a href="../vibe-coding.html" class="text-inherit">Vibe-coded</a> by Artur Nowak. <a href="https://github.com/augmaticaudio/gre" class="text-inherit">Open Source</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

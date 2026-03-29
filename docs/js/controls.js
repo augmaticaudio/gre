@@ -1005,6 +1005,7 @@ MotorikGUI.prototype.initializeAllControls = function() {
             // Check if bipolar based on ID naming convention
             // Bipolar knobs: probability (Blend), instrument-vel-2n, instrument-vel-4n, instrument-vel-4nt, instrument-vel-8n, shift, swing
             var isBipolar = (id.indexOf('-probability') !== -1 ||
+                           id.indexOf('instrument-vel-1n') !== -1 ||
                            id.indexOf('instrument-vel-2n') !== -1 ||
                            id.indexOf('instrument-vel-4n') !== -1 ||
                            id.indexOf('instrument-vel-4nt') !== -1 ||
@@ -1378,7 +1379,7 @@ MotorikGUI.prototype.initializeAllControls = function() {
         };
 
         // Connect bipolar knobs to VB controller
-        var vbKnobs = ['instrument-vel-2n', 'instrument-vel-4n', 'instrument-vel-4nt', 'instrument-vel-8n'];
+        var vbKnobs = ['instrument-vel-1n', 'instrument-vel-2n', 'instrument-vel-4n', 'instrument-vel-4nt', 'instrument-vel-8n'];
         for (var i = 0; i < vbKnobs.length; i++) {
             (function(index) {
                 var knobControl = that.controls[vbKnobs[index]];
@@ -1409,7 +1410,7 @@ MotorikGUI.prototype.initializeAllControls = function() {
                     // LFO is flat - randomize
                     vbController.randomize();
                     // Update knob displays with random values
-                    for (var i = 0; i < 4; i++) {
+                    for (var i = 0; i < 5; i++) {
                         var knob = that.controls[vbKnobs[i]];
                         if (knob) {
                             knob.value = vbController.sliderValues[i];
@@ -1420,7 +1421,7 @@ MotorikGUI.prototype.initializeAllControls = function() {
                     // LFO is not flat - reset
                     vbController.reset();
                     // Update knob displays to 0
-                    for (var i = 0; i < 4; i++) {
+                    for (var i = 0; i < 5; i++) {
                         var knob = that.controls[vbKnobs[i]];
                         if (knob) {
                             knob.value = 0;
@@ -1657,18 +1658,18 @@ MotorikGUI.prototype.getControl = function(id) {
 
 // Velocity Bender Controller
 function VelocityBenderController() {
-    // Slider values (-1.0 to 1.0)
-    this.sliderValues = [0.0, 0.0, 0.0, 0.0];
+    // Slider values (-1.0 to 1.0): 1N, 2N, 4N, 4NT, 8N
+    this.sliderValues = [0.0, 0.0, 0.0, 0.0, 0.0];
 
-    // Beat divisions (matching C++ implementation)
-    this.beatDivisions = [0.5, 0.25, 1.0/6.0, 0.125];
+    // Beat divisions (matching C++ implementation): 1N=whole, 2N=half, 4N=quarter, 4NT=triplet, 8N=eighth
+    this.beatDivisions = [1.0, 0.5, 0.25, 1.0/6.0, 0.125];
 
     // Per-instrument enable states
     this.instrumentEnabled = [true, true, true, true, true, true];
 }
 
 VelocityBenderController.prototype.setSliderValue = function(index, value) {
-    if (index >= 0 && index < 4) {
+    if (index >= 0 && index < 5) {
         // Clamp to -1.0 to 1.0
         this.sliderValues[index] = Math.max(-1.0, Math.min(1.0, value));
     }
@@ -1681,18 +1682,18 @@ VelocityBenderController.prototype.setInstrumentEnabled = function(index, enable
 };
 
 VelocityBenderController.prototype.randomize = function() {
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 5; i++) {
         this.sliderValues[i] = Math.random() * 2.0 - 1.0;
     }
 };
 
 VelocityBenderController.prototype.reset = function() {
-    this.sliderValues = [0.0, 0.0, 0.0, 0.0];
+    this.sliderValues = [0.0, 0.0, 0.0, 0.0, 0.0];
 };
 
 VelocityBenderController.prototype.isFlat = function() {
     // Check if all slider values are at 0 (flat line)
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 5; i++) {
         if (this.sliderValues[i] !== 0.0) {
             return false;
         }
@@ -1705,17 +1706,19 @@ VelocityBenderController.prototype.calculateLFOValue = function(phase) {
     var value = 0.0;
     var totalWeight = 0.0;
 
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 5; i++) {
         // Calculate frequency based on beat division
         var frequency = 1.0 / this.beatDivisions[i];
 
         // Phase shift (matching C++ implementation)
         var phaseShift;
-        if (i === 0) {  // 1/2 beat (2n)
+        if (i === 0) {  // 1 bar (1n)
+            phaseShift = -0.25;   // Shift by -1/4
+        } else if (i === 1) {  // 1/2 beat (2n)
             phaseShift = -0.125;  // Shift by -1/8
-        } else if (i === 1) {  // 1/4 beat (4n)
+        } else if (i === 2) {  // 1/4 beat (4n)
             phaseShift = -0.0625;  // Shift by -1/16
-        } else if (i === 2) {  // 1/6 beat (4nt)
+        } else if (i === 3) {  // 1/6 beat (4nt)
             phaseShift = -0.0417;  // Shift by -1/24
         } else {  // 1/8 beat (8n)
             phaseShift = -0.03125;  // Shift by -1/32
